@@ -6,6 +6,8 @@ import { styled } from '@/styles/stitches';
 import { IconButton, Input, TextInputContainer } from './styles';
 
 const Form = styled('form', {
+  width: '100%',
+  height: '100%',
   display: 'flex',
   flexDirection: 'column',
 });
@@ -13,10 +15,9 @@ const Form = styled('form', {
 export function Search() {
   return (
     <Form>
-      <Text as="h1" css={{ color: '$white', fontSize: '$5xl', fontWeight: '$regular' }}>
+      <Text as="h2" css={{ fontSize: '$5xl', fontWeight: '$regular' }}>
         SEARCH
       </Text>
-
       <div>
         <TextInputContainer>
           <Input placeholder="Enter your search key word" />

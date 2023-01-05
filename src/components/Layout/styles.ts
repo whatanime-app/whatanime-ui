@@ -8,7 +8,6 @@ export const Container = styled('div', {
 export const Content = styled('main', {
   width: '100%',
   height: '100%',
-  maxWidth: 1280,
+  maxWidth: 1320,
   mx: 'auto',
-  padding: '$2',
 });

@@ -7,7 +7,7 @@ export const Root = styled(Avatar.Root, {
   height: 64,
 
   borderRadius: '$full',
-  border: '2px solid $black',
+  border: '1px solid $gray600',
 });
 
 export const Image = styled(Avatar.Image, {

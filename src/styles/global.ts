@@ -11,5 +11,9 @@ export const globalStyles = globalCss({
     color: '$gray50',
     fontFamily: '$default',
     '-webkit-font-smoothing': 'antialiased',
+    overflowX: 'hidden',
+  },
+  button: {
+    transition: 'all 0.2s ease-in',
   },
 });

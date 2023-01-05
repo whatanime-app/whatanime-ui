@@ -5,7 +5,7 @@ export const TextInputContainer = styled('div', {
   height: 56,
   borderRadius: '$sm',
   boxSizing: 'border-box',
-  border: '2px solid $gray900',
+  border: '1px solid $gray600',
   display: 'flex',
   alignItems: 'center',
 
@@ -57,5 +57,12 @@ export const IconButton = styled('button', {
   borderBottom: 'none',
   borderRight: 'none',
 
+  borderTopRightRadius: 'inherit',
+  borderBottomRightRadius: 'inherit',
+
   cursor: 'pointer',
+
+  '&:hover': {
+    color: '$yellow300',
+  },
 });

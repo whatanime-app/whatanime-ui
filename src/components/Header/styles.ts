@@ -8,7 +8,7 @@ export const Container = styled('header', {
 });
 
 export const Content = styled('div', {
-  maxWidth: '1280px',
+  maxWidth: 1320,
   mx: 'auto',
 
   display: 'flex',
