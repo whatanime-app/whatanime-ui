@@ -1,0 +1,26 @@
+export const colors = {
+  white: "#f7f7f7",
+  black: "#121214",
+
+  yellow50: "#fdfce9",
+  yellow100: "#fbf9c6",
+  yellow200: "#f9ef8f",
+  yellow300: "#f5df4d",
+  yellow400: "#f0cc1f",
+  yellow500: "#e0b412",
+  yellow600: "#c18c0d",
+  yellow700: "#9a650e",
+  yellow800: "#805013",
+  yellow900: "#6d4116",
+
+  gray50: "#f6f6f7",
+  gray100: "#e1e2e6",
+  gray200: "#c3c4cc",
+  gray300: "#9d9eab",
+  gray400: "#787989",
+  gray500: "#5e5f6e",
+  gray600: "#4a4a57",
+  gray700: "#3f3e47",
+  gray800: "#34343b",
+  gray900: "#202024",
+};
