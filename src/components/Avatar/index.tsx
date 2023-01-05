@@ -1,4 +1,4 @@
-import { Root, Image, Fallback } from "./styles";
+import { Fallback, Image, Root } from './styles';
 
 export function Avatar() {
   return (

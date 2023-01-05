@@ -1,56 +1,41 @@
-import { createStitches, defaultThemeMap } from "@stitches/react";
-import {
-  colors,
-  fonts,
-  fontSizes,
-  fontWeights,
-  lineHeights,
-  radii,
-  space,
-} from "./tokens";
+import { createStitches, defaultThemeMap } from '@stitches/react';
 
-export const {
-  styled,
-  css,
-  globalCss,
-  keyframes,
-  getCssText,
-  theme,
-  createTheme,
-  config,
-} = createStitches({
-  themeMap: {
-    ...defaultThemeMap,
-    height: "space",
-    width: "space",
-  },
+import { colors, fonts, fontSizes, fontWeights, lineHeights, radii, space } from './tokens';
 
-  theme: {
-    colors,
-    fontSizes,
-    fontWeights,
-    fonts,
-    lineHeights,
-    radii,
-    space,
-  },
+export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme, config } =
+  createStitches({
+    themeMap: {
+      ...defaultThemeMap,
+      height: 'space',
+      width: 'space',
+    },
 
-  utils: {
-    mx: (value: string) => ({
-      marginLeft: value,
-      marginRight: value,
-    }),
-    my: (value: string) => ({
-      marginTop: value,
-      marginBottom: value,
-    }),
-    px: (value: string) => ({
-      paddingLeft: value,
-      paddingRight: value,
-    }),
-    py: (value: string) => ({
-      paddingTop: value,
-      paddingBottom: value,
-    }),
-  },
-});
+    theme: {
+      colors,
+      fontSizes,
+      fontWeights,
+      fonts,
+      lineHeights,
+      radii,
+      space,
+    },
+
+    utils: {
+      mx: (value: string) => ({
+        marginLeft: value,
+        marginRight: value,
+      }),
+      my: (value: string) => ({
+        marginTop: value,
+        marginBottom: value,
+      }),
+      px: (value: string) => ({
+        paddingLeft: value,
+        paddingRight: value,
+      }),
+      py: (value: string) => ({
+        paddingTop: value,
+        paddingBottom: value,
+      }),
+    },
+  });

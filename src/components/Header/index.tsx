@@ -1,13 +1,13 @@
-import { Container, Content } from "./styles";
-import { Logo } from "../Logo";
-import { Avatar } from "../Avatar";
+import { Avatar } from '../Avatar';
+import { Logo } from '../Logo';
+
+import { Container, Content } from './styles';
 
 export function Header() {
   return (
     <Container>
       <Content>
         <Logo />
-        Teste
         <Avatar />
       </Content>
     </Container>
