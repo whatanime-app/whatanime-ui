@@ -1,3 +1,4 @@
+import { Text } from '@/components/Text';
 import { styled } from '@/styles/stitches';
 
 export const Container = styled('section', {
@@ -7,4 +8,12 @@ export const Container = styled('section', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+});
+
+export const Heading = styled(Text, {
+  fontWeight: '$regular',
+});
+
+export const Box = styled('div', {
+  width: '100%',
 });

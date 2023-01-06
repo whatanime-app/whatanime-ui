@@ -2,8 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { useQueryClient } from '@tanstack/react-query';
 import Link from 'next/link';
-import { useQuoteRandom } from 'src/hooks/useQuote';
 
+import { useQuoteRandom } from '@/hooks/useQuote';
 import { AnimesResource } from '@/utils/http';
 import { prefetchAnimeById } from '@/utils/prefetchAnime';
 
@@ -49,7 +49,12 @@ export function Quote() {
           <Title>{title}</Title>
         </Header>
         {malId ? (
-          <Button as={Link} href={`/${malId}`} onMouseOver={() => prefetchAnime()}>
+          <Button
+            aria-label={`link to ${title} page`}
+            as={Link}
+            href={`/${malId}`}
+            onMouseOver={() => prefetchAnime()}
+          >
             <AiOutlineArrowRight size={32} />
           </Button>
         ) : null}

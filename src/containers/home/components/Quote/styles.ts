@@ -57,6 +57,7 @@ export const Button = styled('button', {
   border: 'none',
   borderRadius: '$md',
   padding: '$1',
+  color: '$black',
   cursor: 'pointer',
 
   '&:hover': {

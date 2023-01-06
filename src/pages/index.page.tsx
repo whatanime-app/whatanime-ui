@@ -1,5 +1,5 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
-import { GetStaticProps } from 'next';
+import type { GetStaticProps } from 'next';
 
 import { prefetchAnimeRandom } from '@/utils/prefetchAnime';
 import { prefetchQuoteRandom } from '@/utils/prefetchQuote';
