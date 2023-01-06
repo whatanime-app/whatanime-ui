@@ -2,6 +2,7 @@ import Head from 'next/head';
 
 import { Layout } from '@/components/Layout';
 import { useAnimeById, useAnimeRandom } from '@/hooks/useAnime';
+import { useSearch } from '@/stores/useSearch';
 
 import { AnimeBanner, Quote, Search } from './components';
 import { Box, Container, Heading } from './styles';
@@ -9,6 +10,8 @@ import { Box, Container, Heading } from './styles';
 export function Home() {
   const { data: animeRandom } = useAnimeRandom();
   const { data: animeById } = useAnimeById(21);
+
+  const animes = useSearch((state) => state.animes);
 
   return (
     <Layout>
@@ -37,6 +40,13 @@ export function Home() {
         </Box>
         <Quote />
       </Container>
+      <pre>
+        {JSON.stringify(
+          animes.map((anime) => anime.title),
+          null,
+          2,
+        )}
+      </pre>
     </Layout>
   );
 }
