@@ -7,7 +7,7 @@ export const useAnimeRandom = (anime?: AnimeResult) =>
   useQuery({
     queryKey: ['anime-random'],
     queryFn: async () => AnimesResource.getAnimeRandom(),
-    cacheTime: 60 * 60 * 1000 * 24, // 24 hours
+    staleTime: 60 * 60 * 1000 * 24, // 24 hours
     initialData: anime,
   });
 
