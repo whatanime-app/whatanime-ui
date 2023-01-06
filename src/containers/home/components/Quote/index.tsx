@@ -26,14 +26,12 @@ export function Quote() {
     verifyMalId(data?.title);
   }, [data?.title]);
 
-  const prefetchAnime = useCallback(async () => {
-    if (malId !== null) await prefetchAnimeById(queryClient, malId);
-  }, [queryClient, malId]);
+  const prefetchAnime = useCallback(async (id: number) => prefetchAnimeById(queryClient, id), [queryClient]);
 
   if (isLoading || !data) {
     return (
       <Content>
-        <Text>is Loading ...</Text>
+        <Text>is Loading...</Text>
       </Content>
     );
   }
@@ -53,7 +51,7 @@ export function Quote() {
             aria-label={`link to ${title} page`}
             as={Link}
             href={`/${malId}`}
-            onMouseOver={() => prefetchAnime()}
+            onMouseOver={() => prefetchAnime(malId)}
           >
             <AiOutlineArrowRight size={32} />
           </Button>

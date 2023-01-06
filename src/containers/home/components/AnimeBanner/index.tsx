@@ -3,23 +3,34 @@ import { useQueryClient } from '@tanstack/react-query';
 import Link from 'next/link';
 
 import { Button } from '@/components/Button';
+import { useAnime } from '@/hooks/useAnime';
 import type { AnimeResult } from '@/types/results';
 import { prefetchAnimeById } from '@/utils/prefetchAnime';
 
 import { Badge, Box, Container, Content, Flex, Header, Img, StyleText as Text } from './styles';
 
 type Props = {
-  anime: AnimeResult;
+  anime?: AnimeResult;
 };
 
 export function AnimeBanner({ anime }: Props) {
+  const { data, isLoading } = useAnime(anime);
+
   const queryClient = useQueryClient();
-  const { title, image, year, score, synopsis, malId } = anime;
+
   const compatility = null; // implementar futuramente com quando tiver api de img
 
-  const prefetchAnime = useCallback(async () => {
-    await prefetchAnimeById(queryClient, malId);
-  }, [queryClient, malId]);
+  const prefetchAnime = useCallback(async (id: number) => prefetchAnimeById(queryClient, id), [queryClient]);
+
+  if (!data || isLoading) {
+    return (
+      <Container>
+        <Text>is Loading...</Text>
+      </Container>
+    );
+  }
+
+  const { title, image, year, score, synopsis, malId } = data;
 
   return (
     <Container>
@@ -46,7 +57,7 @@ export function AnimeBanner({ anime }: Props) {
                 <Text>{score}</Text>
               </Flex>
             ) : null}
-            <Button as={Link} href={`/${malId}`} onMouseOver={() => prefetchAnime()}>
+            <Button as={Link} href={`/${malId}`} onMouseOver={() => prefetchAnime(malId)}>
               Go to Page
             </Button>
           </Flex>
