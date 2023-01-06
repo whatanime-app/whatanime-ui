@@ -1,0 +1,149 @@
+{
+  "data": {
+    "mal_id": 1497,
+    "url": "https://myanimelist.net/anime/1497/Aru_Machi_Kado_no_Monogatari",
+    "images": {
+      "jpg": {
+        "image_url": "https://cdn.myanimelist.net/images/anime/6/3159.jpg",
+        "small_image_url": "https://cdn.myanimelist.net/images/anime/6/3159t.jpg",
+        "large_image_url": "https://cdn.myanimelist.net/images/anime/6/3159l.jpg"
+      },
+      "webp": {
+        "image_url": "https://cdn.myanimelist.net/images/anime/6/3159.webp",
+        "small_image_url": "https://cdn.myanimelist.net/images/anime/6/3159t.webp",
+        "large_image_url": "https://cdn.myanimelist.net/images/anime/6/3159l.webp"
+      }
+    },
+    "trailer": {
+      "youtube_id": null,
+      "url": null,
+      "embed_url": null,
+      "images": {
+        "image_url": null,
+        "small_image_url": null,
+        "medium_image_url": null,
+        "large_image_url": null,
+        "maximum_image_url": null
+      }
+    },
+    "approved": true,
+    "titles": [
+      {
+        "type": "Default",
+        "title": "Aru Machi Kado no Monogatari"
+      },
+      {
+        "type": "Synonym",
+        "title": "Aru Machikado no Monogatari"
+      },
+      {
+        "type": "Synonym",
+        "title": "Story of a Street Corner"
+      },
+      {
+        "type": "Synonym",
+        "title": "Tale of a Street Corner"
+      },
+      {
+        "type": "Japanese",
+        "title": "ある街角の物語"
+      },
+      {
+        "type": "English",
+        "title": "Tales of the Street Corner"
+      },
+      {
+        "type": "Spanish",
+        "title": "Historias de una Calle"
+      }
+    ],
+    "title": "Aru Machi Kado no Monogatari",
+    "title_english": "Tales of the Street Corner",
+    "title_japanese": "ある街角の物語",
+    "title_synonyms": [
+      "Aru Machikado no Monogatari",
+      "Story of a Street Corner",
+      "Tale of a Street Corner"
+    ],
+    "type": "Movie",
+    "source": "Original",
+    "episodes": 1,
+    "status": "Finished Airing",
+    "airing": false,
+    "aired": {
+      "from": "1962-11-05T00:00:00+00:00",
+      "to": null,
+      "prop": {
+        "from": {
+          "day": 5,
+          "month": 11,
+          "year": 1962
+        },
+        "to": {
+          "day": null,
+          "month": null,
+          "year": null
+        }
+      },
+      "string": "Nov 5, 1962"
+    },
+    "duration": "39 min",
+    "rating": "G - All Ages",
+    "score": 6.57,
+    "scored_by": 1811,
+    "rank": 6169,
+    "popularity": 8234,
+    "members": 4265,
+    "favorites": 7,
+    "synopsis": "On a certain street corner, there live a girl and her bear doll; a mischievous mouse named Kanku-bouya; a sycamore tree; an old street lamp; a moth; and posters containing a bar girl, a violinist, and a pianist. They all strive for life, but the world may not allow them to flourish.\n\nIn Aru Machi Kado no Monogatari, will the inhabitants of the street corner be able to maintain their peaceful existences, or will war and tyranny plunge them into chaos?\n\n[Written by MAL Rewrite]",
+    "background": "Winner of the 1962 Oofuji Noburou Award.",
+    "season": null,
+    "year": null,
+    "broadcast": {
+      "day": null,
+      "time": null,
+      "timezone": null,
+      "string": null
+    },
+    "producers": [],
+    "licensors": [],
+    "studios": [
+      {
+        "mal_id": 68,
+        "type": "anime",
+        "name": "Mushi Production",
+        "url": "https://myanimelist.net/anime/producer/68/Mushi_Production"
+      }
+    ],
+    "genres": [
+      {
+        "mal_id": 46,
+        "type": "anime",
+        "name": "Award Winning",
+        "url": "https://myanimelist.net/anime/genre/46/Award_Winning"
+      },
+      {
+        "mal_id": 8,
+        "type": "anime",
+        "name": "Drama",
+        "url": "https://myanimelist.net/anime/genre/8/Drama"
+      },
+      {
+        "mal_id": 22,
+        "type": "anime",
+        "name": "Romance",
+        "url": "https://myanimelist.net/anime/genre/22/Romance"
+      }
+    ],
+    "explicit_genres": [],
+    "themes": [
+      {
+        "mal_id": 19,
+        "type": "anime",
+        "name": "Music",
+        "url": "https://myanimelist.net/anime/genre/19/Music"
+      }
+    ],
+    "demographics": []
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "data": {
+    "mal_id": 21,
+    "url": "https://myanimelist.net/anime/21/One_Piece",
+    "images": {
+      "jpg": {
+        "image_url": "https://cdn.myanimelist.net/images/anime/6/73245.jpg",
+        "small_image_url": "https://cdn.myanimelist.net/images/anime/6/73245t.jpg",
+        "large_image_url": "https://cdn.myanimelist.net/images/anime/6/73245l.jpg"
+      },
+      "webp": {
+        "image_url": "https://cdn.myanimelist.net/images/anime/6/73245.webp",
+        "small_image_url": "https://cdn.myanimelist.net/images/anime/6/73245t.webp",
+        "large_image_url": "https://cdn.myanimelist.net/images/anime/6/73245l.webp"
+      }
+    },
+    "trailer": {
+      "youtube_id": "l_98K4_6UQ0",
+      "url": "https://www.youtube.com/watch?v=l_98K4_6UQ0",
+      "embed_url": "https://www.youtube.com/embed/l_98K4_6UQ0?enablejsapi=1&wmode=opaque&autoplay=1",
+      "images": {
+        "image_url": "https://img.youtube.com/vi/l_98K4_6UQ0/default.jpg",
+        "small_image_url": "https://img.youtube.com/vi/l_98K4_6UQ0/sddefault.jpg",
+        "medium_image_url": "https://img.youtube.com/vi/l_98K4_6UQ0/mqdefault.jpg",
+        "large_image_url": "https://img.youtube.com/vi/l_98K4_6UQ0/hqdefault.jpg",
+        "maximum_image_url": "https://img.youtube.com/vi/l_98K4_6UQ0/maxresdefault.jpg"
+      }
+    },
+    "approved": true,
+    "titles": [
+      {
+        "type": "Default",
+        "title": "One Piece"
+      },
+      {
+        "type": "Synonym",
+        "title": "OP"
+      },
+      {
+        "type": "Japanese",
+        "title": "ONE PIECE"
+      },
+      {
+        "type": "English",
+        "title": "One Piece"
+      }
+    ],
+    "title": "One Piece",
+    "title_english": "One Piece",
+    "title_japanese": "ONE PIECE",
+    "title_synonyms": ["OP"],
+    "type": "TV",
+    "source": "Manga",
+    "episodes": null,
+    "status": "Currently Airing",
+    "airing": true,
+    "aired": {
+      "from": "1999-10-20T00:00:00+00:00",
+      "to": null,
+      "prop": {
+        "from": {
+          "day": 20,
+          "month": 10,
+          "year": 1999
+        },
+        "to": {
+          "day": null,
+          "month": null,
+          "year": null
+        }
+      },
+      "string": "Oct 20, 1999 to ?"
+    },
+    "duration": "24 min",
+    "rating": "PG-13 - Teens 13 or older",
+    "score": 8.68,
+    "scored_by": 1162462,
+    "rank": 57,
+    "popularity": 22,
+    "members": 2060336,
+    "favorites": 186305,
+    "synopsis": "Gol D. Roger was known as the \"Pirate King,\" the strongest and most infamous being to have sailed the Grand Line. The capture and execution of Roger by the World Government brought a change throughout the world. His last words before his death revealed the existence of the greatest treasure in the world, One Piece. It was this revelation that brought about the Grand Age of Pirates, men who dreamed of finding One Piece—which promises an unlimited amount of riches and fame—and quite possibly the pinnacle of glory and the title of the Pirate King.\n\nEnter Monkey D. Luffy, a 17-year-old boy who defies your standard definition of a pirate. Rather than the popular persona of a wicked, hardened, toothless pirate ransacking villages for fun, Luffy's reason for being a pirate is one of pure wonder: the thought of an exciting adventure that leads him to intriguing people and ultimately, the promised treasure. Following in the footsteps of his childhood hero, Luffy and his crew travel across the Grand Line, experiencing crazy adventures, unveiling dark mysteries and battling strong enemies, all in order to reach the most coveted of all fortunes—One Piece.\n\n[Written by MAL Rewrite]",
+    "background": "Several anime-original arcs have been adapted into light novels, and the series has inspired 40+ video games as of 2021.",
+    "season": "fall",
+    "year": 1999,
+    "broadcast": {
+      "day": "Sundays",
+      "time": "09:30",
+      "timezone": "Asia/Tokyo",
+      "string": "Sundays at 09:30 (JST)"
+    },
+    "producers": [
+      {
+        "mal_id": 169,
+        "type": "anime",
+        "name": "Fuji TV",
+        "url": "https://myanimelist.net/anime/producer/169/Fuji_TV"
+      },
+      {
+        "mal_id": 416,
+        "type": "anime",
+        "name": "TAP",
+        "url": "https://myanimelist.net/anime/producer/416/TAP"
+      },
+      {
+        "mal_id": 1365,
+        "type": "anime",
+        "name": "Shueisha",
+        "url": "https://myanimelist.net/anime/producer/1365/Shueisha"
+      }
+    ],
+    "licensors": [
+      {
+        "mal_id": 102,
+        "type": "anime",
+        "name": "Funimation",
+        "url": "https://myanimelist.net/anime/producer/102/Funimation"
+      },
+      {
+        "mal_id": 252,
+        "type": "anime",
+        "name": "4Kids Entertainment",
+        "url": "https://myanimelist.net/anime/producer/252/4Kids_Entertainment"
+      }
+    ],
+    "studios": [
+      {
+        "mal_id": 18,
+        "type": "anime",
+        "name": "Toei Animation",
+        "url": "https://myanimelist.net/anime/producer/18/Toei_Animation"
+      }
+    ],
+    "genres": [
+      {
+        "mal_id": 1,
+        "type": "anime",
+        "name": "Action",
+        "url": "https://myanimelist.net/anime/genre/1/Action"
+      },
+      {
+        "mal_id": 2,
+        "type": "anime",
+        "name": "Adventure",
+        "url": "https://myanimelist.net/anime/genre/2/Adventure"
+      },
+      {
+        "mal_id": 10,
+        "type": "anime",
+        "name": "Fantasy",
+        "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+      }
+    ],
+    "explicit_genres": [],
+    "themes": [],
+    "demographics": [
+      {
+        "mal_id": 27,
+        "type": "anime",
+        "name": "Shounen",
+        "url": "https://myanimelist.net/anime/genre/27/Shounen"
+      }
+    ]
+  }
+}
