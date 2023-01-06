@@ -1,16 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { Layout } from '@/components/Layout';
-import { animeChanResource } from '@/utils/http';
+import { AnimesResource } from '@/utils/http';
 
 import { AnimeBanner, Quote, Search } from './components';
 import { Container } from './styles';
 
 export function Home() {
   const query = useQuery({
-    queryKey: ['random-quote'],
+    queryKey: ['anime-quote'],
     queryFn: async () => {
-      const response = await animeChanResource.getRandomAnimeQuote();
+      const response = await AnimesResource.getAnimeRandom();
       return response;
     },
   });

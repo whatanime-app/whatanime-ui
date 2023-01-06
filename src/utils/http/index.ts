@@ -1,7 +1,7 @@
-import { animeChan, AnimeChanResource } from './animeChanResource';
+import { animeChanApi, AnimeChanResource } from './animeChanResource';
 import { jikanApi, JikanResource } from './jikanResource';
 
-const jikanResource = new JikanResource();
-const animeChanResource = new AnimeChanResource();
+const AnimesResource = new JikanResource();
+const QuotesResource = new AnimeChanResource();
 
-export { animeChan, animeChanResource, jikanApi, jikanResource };
+export { animeChanApi, AnimesResource, jikanApi, QuotesResource };

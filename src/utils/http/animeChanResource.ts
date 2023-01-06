@@ -4,12 +4,12 @@ import type { QuoteResponse } from '@/types/animeChan';
 
 import { ANIMECHAN_URL } from '..';
 
-export const animeChan = axios.create({
+export const animeChanApi = axios.create({
   baseURL: ANIMECHAN_URL,
 });
 
 export class AnimeChanResource {
-  private http: AxiosInstance = animeChan;
+  private http: AxiosInstance = animeChanApi;
 
   async getRandomAnimeQuote() {
     return this.http.get<QuoteResponse>('/random');
