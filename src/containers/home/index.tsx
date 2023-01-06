@@ -1,9 +1,14 @@
+import { useAnimeById, useAnimeRandom } from 'src/hooks/useAnime';
+
 import { Layout } from '@/components/Layout';
 
 import { AnimeBanner, Quote, Search } from './components';
 import { Container } from './styles';
 
 export function Home() {
+  const { data: animeRandom } = useAnimeRandom();
+  const { data: animeById } = useAnimeById(21);
+
   return (
     <Layout>
       <Container>
@@ -11,11 +16,11 @@ export function Home() {
         <Quote />
       </Container>
       <Container>
-        <AnimeBanner />
+        {animeRandom ? <AnimeBanner anime={animeRandom} /> : null}
         <Quote />
       </Container>
       <Container>
-        <AnimeBanner />
+        {animeById ? <AnimeBanner anime={animeById} /> : null}
         <Quote />
       </Container>
     </Layout>
