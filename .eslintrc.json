@@ -55,6 +55,7 @@
     "import/no-duplicates": "error",
     "no-undef": "off",
     "global-require": "off",
-    "react/no-danger": "off"
+    "react/no-danger": "off",
+    "class-methods-use-this": "off"
   }
 }
