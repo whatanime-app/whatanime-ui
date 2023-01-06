@@ -1,6 +1,6 @@
 import { QueryClient } from '@tanstack/react-query';
 
-import { QuotesResource } from './http';
+import { QuotesResource } from './animeChanResource';
 
 export const prefetchQuoteRandom = async (queryClient: QueryClient) => {
   await queryClient.prefetchQuery({

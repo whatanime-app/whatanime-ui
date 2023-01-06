@@ -3,8 +3,8 @@ import { useQueryClient } from '@tanstack/react-query';
 import Link from 'next/link';
 
 import { Button } from '@/components/Button';
+import { prefetchAnimeById } from '@/services/http';
 import type { AnimeResult } from '@/types/results';
-import { prefetchAnimeById } from '@/utils/prefetchAnime';
 
 import { Badge, Box, Container, Content, Flex, Header, Img, StyleText as Text } from './styles';
 

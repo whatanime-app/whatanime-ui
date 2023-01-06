@@ -1,6 +1,3 @@
-export const JIKAN_URL = 'https://api.jikan.moe/v4';
-export const ANIMECHAN_URL = 'https://animechan.vercel.app/api';
-
 export function isDevEnvironment() {
   return process.env.NODE_ENV === 'development';
 }

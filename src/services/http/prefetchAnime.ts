@@ -1,6 +1,6 @@
 import { QueryClient } from '@tanstack/react-query';
 
-import { AnimesResource } from './http';
+import { AnimesResource } from './jikanResource';
 
 export const prefetchAnimeById = async (queryClient: QueryClient, malId: number) => {
   await queryClient.prefetchQuery({

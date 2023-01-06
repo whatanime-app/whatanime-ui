@@ -3,13 +3,13 @@ import axios, { AxiosInstance } from 'axios';
 import type { QuoteResponse } from '@/types/animeChan';
 import type { QuoteResult } from '@/types/results';
 
-import { ANIMECHAN_URL } from '..';
+export const ANIMECHAN_URL = 'https://animechan.vercel.app/api';
 
 export const animeChanApi = axios.create({
   baseURL: ANIMECHAN_URL,
 });
 
-export class AnimeChanResource {
+class AnimeChanResource {
   private http: AxiosInstance = animeChanApi;
 
   async getRandomAnimeQuote() {
@@ -50,3 +50,5 @@ export class AnimeChanResource {
     };
   }
 }
+
+export const QuotesResource = new AnimeChanResource();

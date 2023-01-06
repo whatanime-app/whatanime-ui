@@ -1,17 +1,22 @@
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 
 import { Layout } from '@/components/Layout';
-import { useAnimeById, useAnimeRandom } from '@/hooks/useAnime';
+import { useAnimeRandom } from '@/hooks/useAnime';
 import { useSearch } from '@/stores/useSearch';
+import type { AnimeResult } from '@/types/results';
 
 import { AnimeBanner, Quote, Search } from './components';
 import { Box, Container, Heading } from './styles';
 
 export function Home() {
+  const [animesByTitle, setAnimeByTitle] = useState<AnimeResult[]>([]);
   const { data: animeRandom } = useAnimeRandom();
-  const { data: animeById } = useAnimeById(21);
+  const results = useSearch((state) => state.results);
 
-  const animes = useSearch((state) => state.animes);
+  useEffect(() => {
+    setAnimeByTitle(results);
+  }, [results]);
 
   return (
     <Layout>
@@ -31,21 +36,25 @@ export function Home() {
         </Box>
         <Quote />
       </Container>
-      <Container>
-        <Box>
-          <Heading size="5xl" as="h1">
-            RESULTS
-          </Heading>
-          {animeById ? <AnimeBanner anime={animeById} /> : null}
-        </Box>
-        <Quote />
-      </Container>
+      {animesByTitle.length > 0 ? (
+        <Container>
+          <Box>
+            <Heading size="5xl" as="h1">
+              RESULTS
+            </Heading>
+            {animesByTitle[0] ? <AnimeBanner anime={animesByTitle[0]} /> : null}
+          </Box>
+          <Quote />
+        </Container>
+      ) : null}
       <pre>
-        {JSON.stringify(
-          animes.map((anime) => anime.title),
-          null,
-          2,
-        )}
+        {animesByTitle.length > 0
+          ? JSON.stringify(
+              animesByTitle.map((anime) => anime.title),
+              null,
+              2,
+            )
+          : null}
       </pre>
     </Layout>
   );

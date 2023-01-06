@@ -9,13 +9,13 @@ import type {
 } from '@/types/jikan';
 import type { AnimeResult } from '@/types/results';
 
-import { JIKAN_URL } from '..';
+export const JIKAN_URL = 'https://api.jikan.moe/v4';
 
 export const jikanApi = axios.create({
   baseURL: JIKAN_URL,
 });
 
-export class JikanResource {
+class JikanResource {
   private http: AxiosInstance = jikanApi;
 
   async getAnimesByTitleOnJikan(title: string) {
@@ -65,3 +65,5 @@ export class JikanResource {
     };
   }
 }
+
+export const AnimesResource = new JikanResource();

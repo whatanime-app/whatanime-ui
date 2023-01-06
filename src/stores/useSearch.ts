@@ -1,21 +1,21 @@
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 
+import { AnimesResource } from '@/services/http';
 import { AnimeResult } from '@/types/results';
-import { AnimesResource } from '@/utils/http';
 
 type SearchStore = {
-  animes: AnimeResult[];
+  results: AnimeResult[];
   searchAnime: (title: string) => Promise<void>;
 };
 
 export const useSearch = create(
   persist<SearchStore>(
     (set) => ({
-      animes: [],
+      results: [],
       searchAnime: async (title: string) => {
-        const animes = await AnimesResource.getAnimesByTitleOnJikan(title);
-        set({ animes });
+        const results = await AnimesResource.getAnimesByTitleOnJikan(title);
+        set({ results });
       },
     }),
     {

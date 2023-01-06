@@ -4,8 +4,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import Link from 'next/link';
 
 import { useQuoteRandom } from '@/hooks/useQuote';
-import { AnimesResource } from '@/utils/http';
-import { prefetchAnimeById } from '@/utils/prefetchAnime';
+import { AnimesResource, prefetchAnimeById } from '@/services/http';
 
 import { Button, Character, Content, Flex, Header, StyledText as Text, Title } from './styles';
 

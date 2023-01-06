@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
+import { AnimesResource } from '@/services/http';
 import type { AnimeResult } from '@/types/results';
-import { AnimesResource } from '@/utils/http';
 
 export const useAnimeRandom = () =>
   useQuery({

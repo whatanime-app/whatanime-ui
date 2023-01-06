@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { QuotesResource } from '@/utils/http';
+import { QuotesResource } from '@/services/http';
 
 export const useQuoteRandom = () =>
   useQuery({

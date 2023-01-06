@@ -1,12 +1,12 @@
 import { rest } from 'msw';
 
+import { JIKAN_URL } from '@/services/http';
 import type {
   AnimeByIdResponse,
   AnimeByNameResponse,
   AnimeRandomResponse,
   TopAnimeResponse,
 } from '@/types/jikan';
-import { JIKAN_URL } from '@/utils/index';
 
 import { byMalId, byName, byRandom, byTop } from '../jikan';
 
