@@ -3,14 +3,6 @@ import { useQuery } from '@tanstack/react-query';
 import type { AnimeResult } from '@/types/results';
 import { AnimesResource } from '@/utils/http';
 
-export const useAnime = (anime?: AnimeResult) =>
-  useQuery({
-    queryKey: ['anime', anime ? anime.malId : 'a-random'],
-    queryFn: async () =>
-      anime ? AnimesResource.getAnimeByIdOnJikan(anime.malId) : AnimesResource.getAnimeRandom(),
-    initialData: anime,
-  });
-
 export const useAnimeRandom = () =>
   useQuery({
     queryKey: ['anime', 'a-random'],

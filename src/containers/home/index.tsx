@@ -24,7 +24,7 @@ export function Home() {
           <Heading size="5xl" as="h1">
             ANIME OF THE DAY
           </Heading>
-          <AnimeBanner anime={animeRandom} />
+          {animeRandom ? <AnimeBanner anime={animeRandom} /> : null}
         </Box>
         <Quote />
       </Container>
@@ -33,7 +33,7 @@ export function Home() {
           <Heading size="5xl" as="h1">
             RESULTS
           </Heading>
-          <AnimeBanner anime={animeById} />
+          {animeById ? <AnimeBanner anime={animeById} /> : null}
         </Box>
         <Quote />
       </Container>
