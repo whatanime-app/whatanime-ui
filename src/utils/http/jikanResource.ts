@@ -57,7 +57,9 @@ export class JikanResource {
       rank: anime.rank,
       popularity: anime.popularity,
       members: anime.members,
-      synopsis: anime.synopsis.replace('\n\n[Written by MAL Rewrite]', '').replaceAll('\n', '</br>'),
+      synopsis: anime.synopsis
+        ? anime.synopsis.replace('\n\n[Written by MAL Rewrite]', '').replaceAll('\n', ' ')
+        : null,
       season: anime.season,
       year: anime.year || anime.aired.prop.from.year || null,
     };

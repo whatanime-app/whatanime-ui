@@ -1,15 +1,16 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { GetStaticProps } from 'next';
 
-import { AnimesResource, QuotesResource } from '@/utils/http';
+import { prefetchAnimeRandom } from '@/utils/prefetchAnime';
+import { prefetchQuoteRandom } from '@/utils/prefetchQuote';
 
 import { Home } from '../containers/home';
 
 export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(['anime', 'a-random'], async () => AnimesResource.getAnimeRandom());
-  await queryClient.prefetchQuery(['quote', 'q-random'], async () => QuotesResource.getRandomAnimeQuote());
+  await prefetchAnimeRandom(queryClient);
+  await prefetchQuoteRandom(queryClient);
 
   return {
     props: {

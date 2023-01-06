@@ -1,5 +1,10 @@
+import { useCallback } from 'react';
+import { useQueryClient } from '@tanstack/react-query';
+import Link from 'next/link';
+
 import { Button } from '@/components/Button';
 import type { AnimeResult } from '@/types/results';
+import { prefetchAnimeById } from '@/utils/prefetchAnime';
 
 import { Badge, Box, Container, Content, Flex, Header, Img, StyleText as Text } from './styles';
 
@@ -8,19 +13,18 @@ type Props = {
 };
 
 export function AnimeBanner({ anime }: Props) {
-  const { title, image, year, score, synopsis } = anime;
+  const queryClient = useQueryClient();
+  const { title, image, year, score, synopsis, malId } = anime;
+  const compatility = null; // implementar futuramente com quando tiver api de img
+
+  const prefetchAnime = useCallback(async () => {
+    await prefetchAnimeById(queryClient, malId);
+  }, [queryClient, malId]);
 
   return (
     <Container>
-      <Box
-        css={{
-          width: 160,
-          borderRadius: 6,
-          overflow: 'hidden',
-          boxShadow: `0 2px 10px $black`,
-        }}
-      >
-        <Img width={160} height={220} src={image} alt={title} />
+      <Box>
+        <Img width={220} height={250} src={image} alt={title} priority />
       </Box>
       <Content>
         <Flex css={{ alignItems: 'flex-start' }}>
@@ -29,15 +33,23 @@ export function AnimeBanner({ anime }: Props) {
               {title} <span>({year})</span>
             </Text>
           </Header>
-          <Flex css={{ flexDirection: 'column' }}>
-            <Badge>Score</Badge>
-            <Text>{score}</Text>
+          <Flex css={{ alignItems: 'flex-start', gap: '$4' }}>
+            {compatility ? (
+              <Flex css={{ flexDirection: 'column' }}>
+                <Badge>Compatibility</Badge>
+                <Text>{compatility}</Text>
+              </Flex>
+            ) : null}
+            {score ? (
+              <Flex css={{ flexDirection: 'column' }}>
+                <Badge>Score</Badge>
+                <Text>{score}</Text>
+              </Flex>
+            ) : null}
+            <Button as={Link} href={`/${malId}`} onMouseOver={() => prefetchAnime()}>
+              Go to Page
+            </Button>
           </Flex>
-          <Flex css={{ flexDirection: 'column' }}>
-            <Badge>Compatibility</Badge>
-            <Text>80%</Text>
-          </Flex>
-          <Button>Go to Page</Button>
         </Flex>
         <Text as="span" css={{ fontWeight: 'bold', marginBottom: '$2' }}>
           Synopsys

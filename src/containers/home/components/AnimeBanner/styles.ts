@@ -7,16 +7,21 @@ export const Container = styled('div', {
   borderRadius: '$md',
   display: 'flex',
   width: '100%',
+  height: 250,
   backgroundColor: '$gray800',
   border: '1px solid $gray600',
 });
 
 export const Content = styled('div', {
+  width: '100%',
   padding: '$3',
 });
 
 export const Box = styled('div', {
-  minWidth: 160,
+  width: 220,
+  borderRadius: 'inherit',
+  overflow: 'hidden',
+  boxShadow: `0 2px 10px $black`,
 });
 
 export const Flex = styled('div', {

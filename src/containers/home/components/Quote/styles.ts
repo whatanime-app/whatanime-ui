@@ -2,7 +2,8 @@ import { Text } from '@/components/Text';
 import { styled } from '@/styles/stitches';
 
 export const Content = styled('div', {
-  width: '30%',
+  width: 300,
+  height: 180,
   padding: '$4',
   backgroundColor: '$yellow300',
   borderRadius: '$md',

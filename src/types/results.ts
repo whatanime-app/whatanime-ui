@@ -20,7 +20,7 @@ export interface AnimeResult {
   rank: number;
   popularity: number;
   members: number;
-  synopsis: string;
+  synopsis: string | null;
   season: string;
   year: number | null;
 }
