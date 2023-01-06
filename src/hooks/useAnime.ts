@@ -1,40 +1,34 @@
 import { useQuery } from '@tanstack/react-query';
 
-import type { AnimeResult } from '@/types/results';
 import { AnimesResource } from '@/utils/http';
 
-export const useAnimeRandom = (anime?: AnimeResult) =>
+export const useAnimeRandom = () =>
   useQuery({
-    queryKey: ['anime-random'],
+    queryKey: ['anime', 'a-random'],
     queryFn: async () => AnimesResource.getAnimeRandom(),
     staleTime: 60 * 60 * 1000 * 24, // 24 hours
-    initialData: anime,
   });
 
-export const useAnimeById = (malId: number, anime?: AnimeResult) =>
+export const useAnimeById = (malId: number) =>
   useQuery({
-    queryKey: [`anime-id-${malId}`],
+    queryKey: ['anime', malId],
     queryFn: async () => AnimesResource.getAnimeByIdOnJikan(malId),
-    initialData: anime,
   });
 
-export const useAnimeByTitle = (title: string, animes?: AnimeResult[]) =>
+export const useAnimeByTitle = (title: string) =>
   useQuery({
-    queryKey: [`anime-title-${title}`],
+    queryKey: ['animes', title],
     queryFn: async () => AnimesResource.getAnimesByTitleOnJikan(title),
-    initialData: animes,
   });
 
-export const useAnimeTopByFavorite = (animes?: AnimeResult[]) =>
+export const useAnimeTopByFavorite = () =>
   useQuery({
-    queryKey: ['anime-favorite'],
+    queryKey: ['animes', 'favorite'],
     queryFn: async () => AnimesResource.getAnimeTop('favorite'),
-    initialData: animes,
   });
 
-export const useAnimeTopByPopularity = (animes?: AnimeResult[]) =>
+export const useAnimeTopByPopularity = () =>
   useQuery({
-    queryKey: ['anime-popularity'],
+    queryKey: ['animes', 'popularity'],
     queryFn: async () => AnimesResource.getAnimeTop('bypopularity'),
-    initialData: animes,
   });
