@@ -24,14 +24,13 @@
         "tsx": "never"
       }
     ],
-    "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "@typescript-eslint/no-unused-vars": "error",
     "import/no-extraneous-dependencies": [
       "off",
       { "devDependencies": ["**/*.stories.tsx", "**/*.test.tsx"] }
     ],
-    "no-nested-ternary": "off",
+
     "import/no-anonymous-default-export": [2, { "allowArrowFunction": true }],
     "import/prefer-default-export": "off",
     "simple-import-sort/imports": [
@@ -57,6 +56,8 @@
     "global-require": "off",
     "react/no-danger": "off",
     "class-methods-use-this": "off",
-    "no-restricted-exports": "off"
+    "no-restricted-exports": "off",
+    "no-use-before-define": "off",
+    "no-nested-ternary": "off"
   }
 }

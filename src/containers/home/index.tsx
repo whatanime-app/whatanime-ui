@@ -51,7 +51,6 @@ export default function Home() {
           </Heading>
           {animeRandom ? <AnimeBanner anime={animeRandom} /> : null}
         </Box>
-        <Quote />
       </Container>
       {animesByTitle.length > 0 ? (
         <Container>
@@ -61,7 +60,6 @@ export default function Home() {
             </Heading>
             {animesByTitle[0] ? <AnimeBanner anime={animesByTitle[0]} /> : null}
           </Box>
-          <Quote />
         </Container>
       ) : null}
       <pre>

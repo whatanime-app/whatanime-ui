@@ -13,20 +13,22 @@ export function Quote() {
   const { data, isLoading } = useQuoteRandom();
   const queryClient = useQueryClient();
 
+  const verifyMalId = useCallback(async (animeTitle: string | undefined) => {
+    if (animeTitle !== undefined) {
+      await AnimesResource.getAnimesByTitleOnJikan(encodeURI(animeTitle))
+        .then((animes) => setMalId(animes[0].malId))
+        .catch(() => setMalId(null));
+    } else {
+      setMalId(null);
+    }
+  }, []);
+
   useEffect(() => {
-    const verifyMalId = async (title: string | undefined) => {
-      if (title !== undefined) {
-        const response = await AnimesResource.getAnimesByTitleOnJikan(title);
-        setMalId(response[0].malId);
-      } else {
-        setMalId(null);
-      }
-    };
     verifyMalId(data?.title);
-  }, [data?.title]);
+  }, [data?.title, verifyMalId]);
 
   const prefetchAnime = useCallback(async () => {
-    if (malId !== null) prefetchAnimeById(queryClient, malId);
+    if (malId !== null) await prefetchAnimeById(queryClient, malId);
   }, [queryClient, malId]);
 
   if (isLoading || !data) {
