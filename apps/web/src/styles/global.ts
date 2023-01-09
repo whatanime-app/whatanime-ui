@@ -1,4 +1,5 @@
 import { globalCss } from "@whatanime/design-system";
+import { roboto } from "./fonts";
 
 export const globalStyles = globalCss({
   "*": {
@@ -9,7 +10,7 @@ export const globalStyles = globalCss({
   body: {
     backgroundColor: "$gray900",
     color: "$gray50",
-    fontFamily: "$default",
+    fontFamily: roboto.style.fontFamily,
     "-webkit-font-smoothing": "antialiased",
     overflowX: "hidden",
   },
