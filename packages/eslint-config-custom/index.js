@@ -56,5 +56,7 @@ module.exports = {
     'no-use-before-define': 'off',
     'no-nested-ternary': 'off',
     'no-html-link-for-pages': 'off',
+    'import/no-unresolved': 'off',
+    'import/extensions': 'off',
   },
 };
