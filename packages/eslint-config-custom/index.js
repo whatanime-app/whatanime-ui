@@ -14,16 +14,6 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.ts'] }],
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
     '@typescript-eslint/no-use-before-define': ['error'],
     '@typescript-eslint/no-unused-vars': 'error',
     'import/no-extraneous-dependencies': ['off', { devDependencies: ['**/*.stories.tsx', '**/*.test.tsx'] }],
