@@ -1,7 +1,7 @@
-import type { ReactNode } from "react";
-import { Avatar } from "../Avatar";
+import type { ReactNode } from 'react';
+import { Avatar } from '../Avatar';
 
-import { Container, Content } from "./styles";
+import { Container, Content } from './styles';
 
 type Props = {
   children: ReactNode;

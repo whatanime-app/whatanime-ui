@@ -1,75 +1,75 @@
-import { styled } from "@whatanime/design-system";
+import { styled } from '@whatanime/design-system';
 
-export const TextInputContainer = styled("div", {
-  backgroundColor: "$white",
+export const TextInputContainer = styled('div', {
+  backgroundColor: '$white',
   height: 56,
-  borderRadius: "$sm",
-  boxSizing: "border-box",
-  border: "1px solid $gray600",
-  display: "flex",
-  alignItems: "center",
+  borderRadius: '$sm',
+  boxSizing: 'border-box',
+  border: '1px solid $gray600',
+  display: 'flex',
+  alignItems: 'center',
 
-  "&:has(input:focus)": {
-    borderColor: "$yellow300",
+  '&:has(input:focus)': {
+    borderColor: '$yellow300',
   },
 
-  "&:has(input:disabled)": {
+  '&:has(input:disabled)': {
     opacity: 0.5,
-    cursor: "not-allowed",
+    cursor: 'not-allowed',
   },
 });
 
-export const Input = styled("input", {
-  fontFamily: "$default",
-  px: "$4",
-  fontSize: "$md",
-  color: "$black",
-  fontWeight: "regular",
-  background: "transparent",
+export const Input = styled('input', {
+  fontFamily: '$default',
+  px: '$4',
+  fontSize: '$md',
+  color: '$black',
+  fontWeight: 'regular',
+  background: 'transparent',
   border: 0,
-  width: "100%",
+  width: '100%',
 
-  "&:focus": {
+  '&:focus': {
     outline: 0,
   },
 
-  "&:disabled": {
-    cursor: "not-allowed",
+  '&:disabled': {
+    cursor: 'not-allowed',
   },
 
-  "&:placeholder": {
-    color: "$gray400",
+  '&:placeholder': {
+    color: '$gray400',
   },
 });
 
-export const IconButton = styled("button", {
+export const IconButton = styled('button', {
   width: 64,
-  height: "100%",
-  paddingLeft: "$2",
+  height: '100%',
+  paddingLeft: '$2',
 
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 
-  backgroundColor: "$gray200",
-  borderLeft: "inherit",
-  borderTop: "none",
-  borderBottom: "none",
-  borderRight: "none",
+  backgroundColor: '$gray200',
+  borderLeft: 'inherit',
+  borderTop: 'none',
+  borderBottom: 'none',
+  borderRight: 'none',
 
-  borderTopRightRadius: "inherit",
-  borderBottomRightRadius: "inherit",
+  borderTopRightRadius: 'inherit',
+  borderBottomRightRadius: 'inherit',
 
-  cursor: "pointer",
+  cursor: 'pointer',
 
-  "&:hover": {
-    color: "$yellow300",
+  '&:hover': {
+    color: '$yellow300',
   },
 });
 
-export const Form = styled("form", {
-  width: "100%",
-  height: "100%",
-  display: "flex",
-  flexDirection: "column",
+export const Form = styled('form', {
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
 });

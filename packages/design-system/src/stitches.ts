@@ -1,29 +1,12 @@
-import { createStitches, defaultThemeMap } from "@stitches/react";
+import { createStitches, defaultThemeMap } from '@stitches/react';
 
-import {
-  colors,
-  fonts,
-  fontSizes,
-  fontWeights,
-  lineHeights,
-  radii,
-  space,
-} from "@whatanime/design-tokens";
+import { colors, fonts, fontSizes, fontWeights, lineHeights, radii, space } from '@whatanime/design-tokens';
 
-export const {
-  styled,
-  css,
-  globalCss,
-  keyframes,
-  getCssText,
-  theme,
-  createTheme,
-  config,
-} = createStitches({
+export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme, config } = createStitches({
   themeMap: {
     ...defaultThemeMap,
-    height: "space",
-    width: "space",
+    height: 'space',
+    width: 'space',
   },
 
   theme: {

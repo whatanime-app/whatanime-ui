@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "analyzer": "ANALYZE=true next build",
-    "lint": "eslint src/**/*.{ts,tsx} --max-warnings=0 --fix",
-    "format": "prettier --write src/**/*.{ts,tsx}"
+    "analyzer": "ANALYZE=true next build"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",

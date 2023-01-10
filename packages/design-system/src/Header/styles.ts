@@ -1,17 +1,17 @@
-import { styled } from "../stitches";
+import { styled } from '../stitches';
 
-export const Container = styled("header", {
-  padding: "$4",
-  maxWidth: "100vw",
+export const Container = styled('header', {
+  padding: '$4',
+  maxWidth: '100vw',
 
-  backgroundColor: "$gray600",
+  backgroundColor: '$gray600',
 });
 
-export const Content = styled("div", {
+export const Content = styled('div', {
   maxWidth: 1320,
-  mx: "auto",
+  mx: 'auto',
 
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
 });

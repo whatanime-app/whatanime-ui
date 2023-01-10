@@ -1,63 +1,63 @@
-import type { ComponentProps, ElementType } from "react";
+import type { ComponentProps, ElementType } from 'react';
 
-import { styled } from "./stitches";
+import { styled } from './stitches';
 
-export const Button = styled("button", {
-  all: "unset",
-  borderRadius: "$sm",
-  fontSize: "$sm",
-  fontWeight: "$medium",
-  fontFamily: "$default",
-  textAlign: "center",
+export const Button = styled('button', {
+  all: 'unset',
+  borderRadius: '$sm',
+  fontSize: '$sm',
+  fontWeight: '$medium',
+  fontFamily: '$default',
+  textAlign: 'center',
   minWidth: 120,
-  boxSizing: "border-box",
-  padding: "0 $4",
+  boxSizing: 'border-box',
+  padding: '0 $4',
 
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  gap: "$2",
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '$2',
 
-  cursor: "pointer",
+  cursor: 'pointer',
 
   svg: {
-    width: "$4",
-    height: "$4",
+    width: '$4',
+    height: '$4',
   },
 
-  "&:disabled": {
-    cursor: "not-allowed",
+  '&:disabled': {
+    cursor: 'not-allowed',
   },
 
   variants: {
     variant: {
       primary: {
-        color: "$black",
-        background: "$yellow300",
+        color: '$black',
+        background: '$yellow300',
 
-        "&:not(:disabled):hover": {
-          color: "$white",
-          background: "$gray400",
+        '&:not(:disabled):hover': {
+          color: '$white',
+          background: '$gray400',
         },
 
-        "&:disabled": {
-          color: "$white",
-          background: "$gray400",
+        '&:disabled': {
+          color: '$white',
+          background: '$gray400',
         },
       },
 
       secondary: {
-        color: "$white",
-        border: "2px solid $yellow300",
+        color: '$white',
+        border: '2px solid $yellow300',
 
-        "&:not(:disabled):hover": {
-          background: "$yellow300",
-          color: "$black",
+        '&:not(:disabled):hover': {
+          background: '$yellow300',
+          color: '$black',
         },
 
-        "&:disabled": {
-          color: "$gray200",
-          borderColor: "$gray200",
+        '&:disabled': {
+          color: '$gray200',
+          borderColor: '$gray200',
         },
       },
     },
@@ -74,8 +74,8 @@ export const Button = styled("button", {
   },
 
   defaultVariants: {
-    variant: "primary",
-    size: "md",
+    variant: 'primary',
+    size: 'md',
   },
 });
 
@@ -83,4 +83,4 @@ export interface ButtonProps extends ComponentProps<typeof Button> {
   as?: ElementType;
 }
 
-Button.displayName = "Button";
+Button.displayName = 'Button';

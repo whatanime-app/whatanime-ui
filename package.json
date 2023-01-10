@@ -10,7 +10,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md,mdx}\""
   },
   "devDependencies": {
     "@whatanime/eslint-config-custom": "*",
@@ -18,7 +18,7 @@
     "turbo": "latest"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": "16.x"
   },
   "dependencies": {},
   "packageManager": "npm@8.19.2"
