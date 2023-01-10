@@ -1,5 +1,5 @@
 {
   "extends": "@whatanime/tsconfig/react-library.json",
-  "include": ["."],
+  "include": [".", "../../apps/web/src/components/Header"],
   "exclude": ["dist", "build", "node_modules"]
 }

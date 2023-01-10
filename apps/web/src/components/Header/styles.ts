@@ -1,4 +1,4 @@
-import { styled } from '../stitches';
+import { styled } from '@whatanime/design-system/src/stitches';
 
 export const Container = styled('header', {
   padding: '$4',
