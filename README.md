@@ -50,8 +50,8 @@ npm run dev
 
 ### Links:
 
-Site: https://www.whatanime.org
-Storybook: https://storybook.whatanime.org
-Design System: https://www.npmjs.com/package/@whatanime/design-system
-Design Tokens: https://www.npmjs.com/package/@whatanime/design-tokens
+Site: https://www.whatanime.org  
+Storybook: https://storybook.whatanime.org  
+Design System: https://www.npmjs.com/package/@whatanime/design-system  
+Design Tokens: https://www.npmjs.com/package/@whatanime/design-tokens  
 
