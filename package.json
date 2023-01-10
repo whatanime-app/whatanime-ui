@@ -10,9 +10,13 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx}\""
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo run build --filter=apps && changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.26.0",
     "prettier": "^2.8.2",
     "turbo": "^1.6.3"
   },
