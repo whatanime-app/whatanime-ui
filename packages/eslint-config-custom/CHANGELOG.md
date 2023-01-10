@@ -1,5 +1,11 @@
 # @whatanime/eslint-config-custom
 
+## 0.3.0
+
+### Minor Changes
+
+- fix eslint config
+
 ## 0.2.0
 
 ### Minor Changes
