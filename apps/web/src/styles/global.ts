@@ -1,7 +1,5 @@
 import { globalCss } from '@whatanime/design-system';
 
-import { roboto } from './fonts';
-
 export const globalStyles = globalCss({
   '*': {
     boxSizing: 'border-box',
@@ -11,7 +9,7 @@ export const globalStyles = globalCss({
   body: {
     backgroundColor: '$gray900',
     color: '$gray50',
-    fontFamily: roboto.style.fontFamily,
+    fontFamily: 'Roboto, sans-serif',
     '-webkit-font-smoothing': 'antialiased',
     overflowX: 'hidden',
   },
