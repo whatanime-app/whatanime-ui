@@ -23,11 +23,12 @@
     "@whatanime/eslint-config-custom": "*",
     "@whatanime/tsconfig": "*",
     "babel-loader": "^8.3.0",
-    "vite": "^3.2.5"
+    "vite": "^4.0.4"
   },
   "dependencies": {
     "@whatanime/design-system": "*",
     "@whatanime/design-tokens": "*",
+    "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
