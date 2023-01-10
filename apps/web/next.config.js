@@ -12,7 +12,6 @@ module.exports = withBundleAnalyzer({
       {
         protocol: 'https',
         hostname: 'cdn.myanimelist.net',
-        port: '',
       },
     ],
   },
