@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "start-storybook -p 6006",
     "build": "build-storybook",
-    "lint": "eslint src/**/*.{ts,tsx} --max-warnings=0 --fix"
+    "lint": "eslint src/**/*.{ts,tsx} --max-warnings=0 --fix",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "author": "diogo.rocha",
   "devDependencies": {
@@ -18,6 +19,7 @@
     "@storybook/addon-links": "^6.5.15",
     "@storybook/builder-vite": "^0.2.7",
     "@storybook/react": "^6.5.15",
+    "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/testing-library": "^0.0.13",
     "@vitejs/plugin-react": "^3.0.1",
     "@whatanime/eslint-config-custom": "*",
