@@ -2,9 +2,9 @@ import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaSearch } from 'react-icons/fa';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Text } from '@whatanime/design-system';
 import { z } from 'zod';
 
-import { Text } from '@whatanime/design-system';
 import { useSearch } from '@/stores/useSearch';
 
 import { Form, IconButton, Input, TextInputContainer } from './styles';

@@ -1,4 +1,4 @@
-import { Text, styled } from '@whatanime/design-system';
+import { styled, Text } from '@whatanime/design-system';
 
 export const Container = styled('section', {
   width: '100%',

@@ -7,6 +7,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
 import { globalStyles } from '@/styles/global';
+
 import { axeAccessibilityReporter } from '../utils';
 
 globalStyles();

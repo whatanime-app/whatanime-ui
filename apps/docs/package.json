@@ -5,7 +5,8 @@
   "description": "",
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "build": "build-storybook"
+    "build": "build-storybook",
+    "lint": "eslint src/**/*.{ts,tsx} --max-warnings=0 --fix"
   },
   "author": "diogo.rocha",
   "devDependencies": {

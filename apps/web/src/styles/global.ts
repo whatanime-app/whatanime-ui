@@ -1,4 +1,5 @@
 import { globalCss } from '@whatanime/design-system';
+
 import { roboto } from './fonts';
 
 export const globalStyles = globalCss({

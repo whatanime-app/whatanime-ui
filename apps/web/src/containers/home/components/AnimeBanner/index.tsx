@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
+import { Button } from '@whatanime/design-system';
 import Link from 'next/link';
 
-import { Button } from '@whatanime/design-system';
 import { prefetchAnimeById } from '@/services/http';
 import type { AnimeResult } from '@/types/results';
 

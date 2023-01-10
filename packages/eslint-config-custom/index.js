@@ -1,7 +1,60 @@
 module.exports = {
-  extends: ["next", "turbo", "prettier"],
+  extends: ['airbnb', 'turbo', 'next/core-web-vitals', 'prettier'],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  plugins: ['react', '@typescript-eslint', 'prettier', 'simple-import-sort'],
   rules: {
-    "@next/next/no-html-link-for-pages": "off",
-    "react/jsx-key": "off",
+    'prettier/prettier': 'error',
+    'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.ts'] }],
+    'react/require-default-props': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+    '@typescript-eslint/no-use-before-define': ['error'],
+    '@typescript-eslint/no-unused-vars': 'error',
+    'import/no-extraneous-dependencies': ['off', { devDependencies: ['**/*.stories.tsx', '**/*.test.tsx'] }],
+    'import/no-anonymous-default-export': [2, { allowArrowFunction: true }],
+    'import/prefer-default-export': 'off',
+    'simple-import-sort/imports': [
+      'error',
+      {
+        groups: [
+          [
+            '^(assert|buffer|child_process|cluster|console|constants|crypto|dgram|dns|domain|events|fs|http|https|module|net|os|path|punycode|querystring|readline|repl|stream|string_decoder|sys|timers|tls|tty|url|util|vm|zlib|freelist|v8|process|async_hooks|http2|perf_hooks)(/.*|$)',
+          ],
+          ['^react', '^@?\\w'],
+          ['^(@|@company|@ui|components|utils|config|vendored-lib)(/.*|$)'],
+          ['^\\u0000'],
+          ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+          ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$', '^.+\\.s?css$'],
+        ],
+      },
+    ],
+    'simple-import-sort/exports': 'error',
+    'import/first': 'error',
+    'import/newline-after-import': 'error',
+    'import/no-duplicates': 'error',
+    'no-undef': 'off',
+    'global-require': 'off',
+    'react/no-danger': 'off',
+    'class-methods-use-this': 'off',
+    'no-restricted-exports': 'off',
+    'no-use-before-define': 'off',
+    'no-nested-ternary': 'off',
+    'no-html-link-for-pages': 'off',
   },
 };

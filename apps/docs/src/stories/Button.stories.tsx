@@ -1,4 +1,4 @@
-import type { StoryObj, Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Button, ButtonProps } from '@whatanime/design-system';
 
 export default {

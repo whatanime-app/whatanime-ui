@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
-
 import { Header } from '@whatanime/design-system';
+
 import { Logo } from '../Logo';
+
 import { Container, Content } from './styles';
 
 type Props = {

@@ -1,6 +1,5 @@
-import Image from 'next/image';
-
 import { styled, Text } from '@whatanime/design-system';
+import Image from 'next/image';
 
 export const Container = styled('div', {
   borderRadius: '$md',
