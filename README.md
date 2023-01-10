@@ -1,6 +1,6 @@
-# Turborepo starter
+# [WhatAnime](https://www.whatanime.org/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/main/LICENSE) ![npm version](https://img.shields.io/badge/node-v16.18.1-blue)
 
-This is an official npm starter turborepo.
+Monorepo official WhatAnime
 
 ## What's inside?
 
@@ -8,10 +8,11 @@ This turborepo uses [npm](https://www.npmjs.com/) as a package manager. It inclu
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `docs`: a [Storybook](https://storybook.js.org/) app
+- `web`: a [Next.js](https://nextjs.org/) app
+- `design-system`: a React component library
+- `design-tokens`: a Tokens library
+- `eslint-config-custom`: `eslint` configurations
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
@@ -24,12 +25,18 @@ This turborepo has some additional tools already setup for you:
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
 
+## Installation
+
+```
+cd whatanime-ui
+npm i
+```
+
 ### Build
 
 To build all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 npm run build
 ```
 
@@ -38,36 +45,13 @@ npm run build
 To develop all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 npm run dev
 ```
 
-### Remote Caching
+### Links:
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+Site: https://www.whatanime.org
+Storybook: https://storybook.whatanime.org
+Design System: https://www.npmjs.com/package/@whatanime/design-system
+Design Tokens: https://www.npmjs.com/package/@whatanime/design-tokens
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Pipelines](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
