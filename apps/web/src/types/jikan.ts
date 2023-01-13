@@ -184,6 +184,13 @@ export interface Meta {
   total: number;
 }
 
+export interface AnimeResponse {
+  pagination: Pagination;
+  data: Anime[];
+  links: Links;
+  meta: Meta;
+}
+
 export interface TopAnimeResponse {
   pagination: Pagination;
   data: Anime[];

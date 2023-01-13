@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { dehydrate, QueryClient } from '@tanstack/react-query';
+import { Button } from '@whatanime/design-system';
 import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 
@@ -7,9 +8,9 @@ import { Layout } from '@/components/Layout';
 import { useAnimeRandom } from '@/hooks/useAnime';
 import { prefetchAnimeRandom, prefetchQuoteRandom, prefetchTopAnime } from '@/services/http';
 import { useSearch } from '@/stores/useSearch';
-import type { AnimeResult } from '@/types/results';
+import type { GetAnimeByTitleOnJikan } from '@/types/results';
 
-import { AnimeBanner, Quote, Ranking, Search } from './components';
+import { AnimeBanner, MiniAnimeCard, Quote, Ranking, Search } from './components';
 import { Box, Container, Flex, Heading } from './styles';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -29,12 +30,14 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 export default function Home() {
-  const [animesByTitle, setAnimeByTitle] = useState<Array<AnimeResult>>([]);
-  const { data: animeRandom } = useAnimeRandom();
+  const [pagination, setPagination] = useState(0);
   const results = useSearch((state) => state.results);
+  const [animesByTitle, setAnimesByTitle] = useState<GetAnimeByTitleOnJikan>([]);
+
+  const { data: animeRandom } = useAnimeRandom();
 
   useEffect(() => {
-    setAnimeByTitle(results);
+    setAnimesByTitle(results);
   }, [results]);
 
   return (
@@ -57,28 +60,65 @@ export default function Home() {
           </Flex>
         </Box>
       </Container>
-      {animesByTitle.length > 0 ? (
-        <Container>
-          <Box>
-            <Heading size="5xl" as="h1">
-              RESULTS
-            </Heading>
-            <Flex>
-              {animesByTitle[0] ? <AnimeBanner anime={animesByTitle[0]} /> : null}
-              <Ranking type="favorite" />
+
+      <Container>
+        <Box>
+          <Flex>
+            <Flex css={{ flexDirection: 'column' }}>
+              {animesByTitle.length > 0 ? (
+                <>
+                  <Heading size="5xl" as="h1">
+                    RESULTS
+                  </Heading>
+                  <Flex>
+                    <Flex css={{ flexDirection: 'column', gap: '$12', position: 'relative', height: 548 }}>
+                      {animesByTitle[0].animes ? <AnimeBanner anime={animesByTitle[0].animes[0]} /> : null}
+                      <Flex css={{ gap: '$2', justifyContent: 'space-between' }}>
+                        {animesByTitle[0].animes
+                          ? animesByTitle[pagination].animes.map((anime) => (
+                              <MiniAnimeCard key={anime.malId} anime={anime} />
+                            ))
+                          : null}
+                      </Flex>
+                      <Flex
+                        css={{
+                          gap: '$3',
+                          position: 'absolute',
+                          right: 0,
+                          bottom: '-$16',
+                          width: 'max-content',
+                        }}
+                      >
+                        {animesByTitle.map(({ page }) => (
+                          <Button
+                            css={{ minWidth: 20 }}
+                            key={page}
+                            type="button"
+                            onClick={() => setPagination(page)}
+                          >
+                            {page + 1}
+                          </Button>
+                        ))}
+                      </Flex>
+                    </Flex>
+                    <Ranking type="favorite" />
+                  </Flex>
+                </>
+              ) : (
+                <>
+                  <Heading size="5xl" as="h1">
+                    RESULTS
+                  </Heading>
+                  <Flex>
+                    <Box />
+                    <Ranking type="favorite" />
+                  </Flex>
+                </>
+              )}
             </Flex>
-          </Box>
-        </Container>
-      ) : null}
-      <pre>
-        {animesByTitle.length > 0
-          ? JSON.stringify(
-              animesByTitle.map((anime) => anime.title),
-              null,
-              2,
-            )
-          : null}
-      </pre>
+          </Flex>
+        </Box>
+      </Container>
     </Layout>
   );
 }

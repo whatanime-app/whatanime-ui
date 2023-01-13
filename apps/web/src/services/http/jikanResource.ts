@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 import axios, { AxiosInstance } from 'axios';
 
 import type {
@@ -8,7 +9,7 @@ import type {
   TopAnimeResponse,
   TypeTopAnime,
 } from '@/types/jikan';
-import type { AnimeResult } from '@/types/results';
+import type { AnimeResult, GetAnimeByTitleOnJikan } from '@/types/results';
 
 export const JIKAN_URL = 'https://api.jikan.moe/v4';
 
@@ -19,11 +20,30 @@ export const jikanApi = axios.create({
 class JikanResource {
   private http: AxiosInstance = jikanApi;
 
-  async getAnimesByTitleOnJikan(title: string) {
+  private animeChunk(animes: Array<AnimeResult>) {
+    const chunks: GetAnimeByTitleOnJikan = [];
+    let count = -1;
+
+    for (let i = 0; i < animes.length; i += 4) {
+      for (let j = 1; j < 4; j += 4) {
+        count += 1;
+      }
+
+      chunks.push({
+        animes: animes.slice(i, i + 4),
+        page: count,
+      });
+    }
+
+    return chunks;
+  }
+
+  async getAnimesByTitleOnJikan(title: string): Promise<GetAnimeByTitleOnJikan> {
     const { data: response } = await this.http.get<AnimeByNameResponse>(
-      `/anime?q=${title}&order_by=score&sort=desc`,
+      `/anime?q=${title}&order_by=popularity`,
     );
-    return response.data.map((anime) => this.formatAnime(anime));
+    const animes = response.data.map((anime) => this.formatAnime(anime));
+    return this.animeChunk(animes);
   }
 
   async getAnimeByIdOnJikan(malId: number) {

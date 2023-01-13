@@ -1,5 +1,11 @@
 # @whatanime/eslint-config-custom
 
+## 0.4.0
+
+### Minor Changes
+
+- add container component
+
 ## 0.3.0
 
 ### Minor Changes
