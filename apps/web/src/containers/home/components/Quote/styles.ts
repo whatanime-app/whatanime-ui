@@ -1,4 +1,4 @@
-import { styled, Text } from '@whatanime/design-system';
+import { styled, Text as WAText } from '@whatanime/design-system';
 
 export const Content = styled('div', {
   width: 300,
@@ -21,7 +21,7 @@ export const Header = styled('header', {
   py: '$2',
 });
 
-export const StyledText = styled(Text, {
+export const Text = styled(WAText, {
   height: 80,
   color: '$black',
   fontStyle: 'italic',
@@ -32,7 +32,7 @@ export const StyledText = styled(Text, {
   '-webkit-box-orient': 'vertical',
 });
 
-export const Character = styled(Text, {
+export const Character = styled(WAText, {
   color: '$black',
   fontWeight: 'bold',
   overflow: 'hidden',
@@ -42,7 +42,7 @@ export const Character = styled(Text, {
   '-webkit-box-orient': 'vertical',
 });
 
-export const Title = styled(Text, {
+export const Title = styled(WAText, {
   color: '$black',
   overflow: 'hidden',
   textOverflow: 'ellipsis',

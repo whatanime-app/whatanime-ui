@@ -5,18 +5,20 @@ import Head from 'next/head';
 
 import { Layout } from '@/components/Layout';
 import { useAnimeRandom } from '@/hooks/useAnime';
-import { prefetchAnimeRandom, prefetchQuoteRandom } from '@/services/http';
+import { prefetchAnimeRandom, prefetchQuoteRandom, prefetchTopAnime } from '@/services/http';
 import { useSearch } from '@/stores/useSearch';
 import type { AnimeResult } from '@/types/results';
 
-import { AnimeBanner, Quote, Search } from './components';
-import { Box, Container, Heading } from './styles';
+import { AnimeBanner, Quote, Ranking, Search } from './components';
+import { Box, Container, Flex, Heading } from './styles';
 
 export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient();
 
   await prefetchAnimeRandom(queryClient);
   await prefetchQuoteRandom(queryClient);
+  await prefetchTopAnime(queryClient, 'airing');
+  await prefetchTopAnime(queryClient, 'favorite');
 
   return {
     props: {
@@ -27,7 +29,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 export default function Home() {
-  const [animesByTitle, setAnimeByTitle] = useState<AnimeResult[]>([]);
+  const [animesByTitle, setAnimeByTitle] = useState<Array<AnimeResult>>([]);
   const { data: animeRandom } = useAnimeRandom();
   const results = useSearch((state) => state.results);
 
@@ -49,7 +51,10 @@ export default function Home() {
           <Heading size="5xl" as="h1">
             ANIME OF THE DAY
           </Heading>
-          {animeRandom ? <AnimeBanner anime={animeRandom} /> : null}
+          <Flex>
+            {animeRandom ? <AnimeBanner anime={animeRandom} /> : null}
+            <Ranking type="airing" />
+          </Flex>
         </Box>
       </Container>
       {animesByTitle.length > 0 ? (
@@ -58,7 +63,10 @@ export default function Home() {
             <Heading size="5xl" as="h1">
               RESULTS
             </Heading>
-            {animesByTitle[0] ? <AnimeBanner anime={animesByTitle[0]} /> : null}
+            <Flex>
+              {animesByTitle[0] ? <AnimeBanner anime={animesByTitle[0]} /> : null}
+              <Ranking type="favorite" />
+            </Flex>
           </Box>
         </Container>
       ) : null}
