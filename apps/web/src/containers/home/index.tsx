@@ -31,14 +31,15 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export default function Home() {
   const [pagination, setPagination] = useState(0);
-  const results = useSearch((state) => state.results);
-  const [animesByTitle, setAnimesByTitle] = useState<GetAnimeByTitleOnJikan>([]);
+  const response = useSearch((state) => state.response);
+  const [result, setResult] = useState<GetAnimeByTitleOnJikan>(null);
 
   const { data: animeRandom } = useAnimeRandom();
 
   useEffect(() => {
-    setAnimesByTitle(results);
-  }, [results]);
+    setResult(response);
+    setPagination(0);
+  }, [response]);
 
   return (
     <Layout>
@@ -65,17 +66,17 @@ export default function Home() {
         <Box>
           <Flex>
             <Flex css={{ flexDirection: 'column' }}>
-              {animesByTitle.length > 0 ? (
+              {result ? (
                 <>
                   <Heading size="5xl" as="h1">
                     RESULTS
                   </Heading>
                   <Flex>
                     <Flex css={{ flexDirection: 'column', gap: '$12', position: 'relative', height: 548 }}>
-                      {animesByTitle[0].animes ? <AnimeBanner anime={animesByTitle[0].animes[0]} /> : null}
+                      {result.animeByTitle ? <AnimeBanner anime={result.animeByTitle} /> : null}
                       <Flex css={{ gap: '$2', justifyContent: 'space-between' }}>
-                        {animesByTitle[0].animes
-                          ? animesByTitle[pagination].animes.map((anime) => (
+                        {result.data
+                          ? result.data[pagination].animes.map((anime) => (
                               <MiniAnimeCard key={anime.malId} anime={anime} />
                             ))
                           : null}
@@ -89,11 +90,12 @@ export default function Home() {
                           width: 'max-content',
                         }}
                       >
-                        {animesByTitle.map(({ page }) => (
+                        {result.data.map(({ page }) => (
                           <Button
                             css={{ minWidth: 20 }}
                             key={page}
                             type="button"
+                            disabled={page === pagination}
                             onClick={() => setPagination(page)}
                           >
                             {page + 1}
