@@ -28,17 +28,17 @@ class AnimeChanResource {
   }
 
   async getTenRandomAnimeQuotes() {
-    const { data } = await this.http.get<QuoteResponse[]>('/quotes');
+    const { data } = await this.http.get<Array<QuoteResponse>>('/quotes');
     return data.map((quote) => this.formatQuote(quote));
   }
 
   async getTenAnimeQuotesByTitle(title: string) {
-    const { data } = await this.http.get<QuoteResponse[]>(`/quotes/anime?title=${title}`);
+    const { data } = await this.http.get<Array<QuoteResponse>>(`/quotes/anime?title=${title}`);
     return data.map((quote) => this.formatQuote(quote));
   }
 
   async getTenAnimeQuotesByCharacter(character: string) {
-    const { data } = await this.http.get<QuoteResponse[]>(`/quotes/character?name=${character}`);
+    const { data } = await this.http.get<Array<QuoteResponse>>(`/quotes/character?name=${character}`);
     return data.map((quote) => this.formatQuote(quote));
   }
 
