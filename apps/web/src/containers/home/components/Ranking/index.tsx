@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import { Text } from '@whatanime/design-system';
 
@@ -14,6 +15,13 @@ type Props = {
 export function Ranking({ type }: Props) {
   const queryClient = useQueryClient();
   const { data, isLoading } = useAnimeTop(type);
+
+  const prefetchAnime = useCallback(
+    async (malId: number) => {
+      await prefetchAnimeById(queryClient, malId);
+    },
+    [queryClient],
+  );
 
   if (isLoading || !data) {
     return (
@@ -32,19 +40,13 @@ export function Ranking({ type }: Props) {
       </Heading>
       <Box>
         <List>
-          {data
-            ? data.map(({ malId, title }, index) => (
-                <Link
-                  key={malId}
-                  href={`/${malId}`}
-                  onMouseOver={() => prefetchAnimeById(queryClient, malId)}
-                >
-                  <ListItem css={{ '-webkit-line-clamp': type === 'airing' ? 1 : 2 }}>
-                    {index + 1}.{` ${title}`}
-                  </ListItem>
-                </Link>
-              ))
-            : null}
+          {data.map(({ malId, title }, index) => (
+            <Link key={malId} href={`/${malId}`} onMouseOver={() => prefetchAnime(malId)}>
+              <ListItem css={{ '-webkit-line-clamp': type === 'airing' ? 1 : 2 }}>
+                {index + 1}.{` ${title}`}
+              </ListItem>
+            </Link>
+          ))}
         </List>
       </Box>
     </Container>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 import { useQuoteRandom } from '@/hooks/useQuote';
 import { AnimesResource, prefetchAnimeById } from '@/services/http';
+import { GetAnimeByTitleOnJikan } from '@/types/results';
 
 import { Button, Character, Content, Flex, Header, Text, Title } from './styles';
 
@@ -13,15 +14,23 @@ export function Quote() {
   const { data, isLoading } = useQuoteRandom();
   const queryClient = useQueryClient();
 
-  const verifyMalId = useCallback(async (animeTitle: string | undefined) => {
-    if (animeTitle !== undefined) {
-      await AnimesResource.getAnimesByTitleOnJikan(encodeURI(animeTitle))
-        .then((animes) => setMalId(animes[0].malId))
-        .catch(() => setMalId(null));
-    } else {
-      setMalId(null);
-    }
-  }, []);
+  const verifyMalId = useCallback(
+    async (animeTitle: string | undefined) => {
+      if (animeTitle !== undefined) {
+        const title = encodeURI(animeTitle);
+        await queryClient
+          .fetchQuery<GetAnimeByTitleOnJikan>({
+            queryKey: ['anime', encodeURI(title)],
+            queryFn: async () => AnimesResource.getAnimesByTitleOnJikan(encodeURI(title)),
+          })
+          .then((result) => setMalId(result[0].animes[0].malId))
+          .catch(() => setMalId(null));
+      } else {
+        setMalId(null);
+      }
+    },
+    [queryClient],
+  );
 
   useEffect(() => {
     verifyMalId(data?.title);

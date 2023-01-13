@@ -1,20 +1,24 @@
+import { QueryClient } from '@tanstack/react-query';
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 
 import { AnimesResource } from '@/services/http';
-import { AnimeResult } from '@/types/results';
+import { GetAnimeByTitleOnJikan } from '@/types/results';
 
 type SearchStore = {
-  results: Array<AnimeResult>;
-  searchAnime: (title: string) => Promise<void>;
+  results: GetAnimeByTitleOnJikan;
+  searchAnime: (queryClient: QueryClient, title: string) => Promise<void>;
 };
 
 export const useSearch = create(
   persist<SearchStore>(
     (set) => ({
       results: [],
-      searchAnime: async (title: string) => {
-        const results = await AnimesResource.getAnimesByTitleOnJikan(title);
+      searchAnime: async (queryClient: QueryClient, title: string) => {
+        const results = await queryClient.fetchQuery({
+          queryKey: ['anime', title],
+          queryFn: async () => AnimesResource.getAnimesByTitleOnJikan(title),
+        });
         set({ results });
       },
     }),
