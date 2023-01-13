@@ -51,10 +51,14 @@ export function AnimeBanner({ anime }: Props) {
             </Button>
           </Flex>
         </Flex>
-        <Text as="span" css={{ fontWeight: 'bold', marginBottom: '$2' }}>
-          Synopsys
-        </Text>
-        <Text>{synopsis}</Text>
+        {synopsis ? (
+          <>
+            <Text as="span" css={{ fontWeight: 'bold', marginBottom: '$2' }}>
+              Synopsys
+            </Text>
+            <Text>{synopsis}</Text>
+          </>
+        ) : null}
       </Content>
     </Container>
   );

@@ -24,3 +24,8 @@ export interface AnimeResult {
   season: string;
   year: number | null;
 }
+
+export type GetAnimeByTitleOnJikan = Array<{
+  animes: AnimeResult[];
+  page: number;
+}>;
