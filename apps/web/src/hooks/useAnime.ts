@@ -28,4 +28,5 @@ export const useAnimeTop = (filter: TypeTopAnime) =>
   useQuery({
     queryKey: ['animes', filter],
     queryFn: async () => AnimesResource.getAnimeTop(filter),
+    staleTime: 60 * 60 * 1000 * 24, // 24 hours
   });

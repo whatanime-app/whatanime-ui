@@ -17,11 +17,10 @@ export function Quote() {
   const verifyMalId = useCallback(
     async (animeTitle: string | undefined) => {
       if (animeTitle !== undefined) {
-        const title = encodeURI(animeTitle);
         await queryClient
           .fetchQuery<GetAnimeByTitleOnJikan>({
-            queryKey: ['anime', encodeURI(title)],
-            queryFn: async () => AnimesResource.getAnimesByTitleOnJikan(encodeURI(title)),
+            queryKey: ['anime', animeTitle],
+            queryFn: async () => AnimesResource.getAnimesByTitleOnJikan(animeTitle),
           })
           .then((response) => (response !== null ? setMalId(response.animeByTitle.malId) : setMalId(null)))
           .catch(() => setMalId(null));
