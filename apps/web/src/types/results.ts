@@ -25,7 +25,10 @@ export interface AnimeResult {
   year: number | null;
 }
 
-export type GetAnimeByTitleOnJikan = Array<{
-  animes: AnimeResult[];
-  page: number;
-}>;
+export type GetAnimeByTitleOnJikan = {
+  animeByTitle: AnimeResult;
+  data: Array<{
+    animes: AnimeResult[];
+    page: number;
+  }>;
+} | null;
