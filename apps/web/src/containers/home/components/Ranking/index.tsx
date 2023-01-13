@@ -25,7 +25,7 @@ export function Ranking({ type }: Props) {
 
   if (isLoading || !data) {
     return (
-      <Container>
+      <Container css={{ padding: '$4' }}>
         <Text>is Loading...</Text>
       </Container>
     );
