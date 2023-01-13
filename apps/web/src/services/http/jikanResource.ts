@@ -21,7 +21,7 @@ class JikanResource {
   private http: AxiosInstance = jikanApi;
 
   private animeChunk(animes: Array<AnimeResult>) {
-    const chunks: GetAnimeByTitleOnJikan = [];
+    const chunks = [];
     let count = -1;
 
     for (let i = 0; i < animes.length; i += 4) {
@@ -43,7 +43,17 @@ class JikanResource {
       `/anime?q=${title}&order_by=popularity`,
     );
     const animes = response.data.map((anime) => this.formatAnime(anime));
-    return this.animeChunk(animes);
+
+    const animeByTitle = animes.shift();
+
+    if (animeByTitle === undefined) {
+      return null;
+    }
+
+    return {
+      animeByTitle,
+      data: this.animeChunk(animes),
+    };
   }
 
   async getAnimeByIdOnJikan(malId: number) {

@@ -23,7 +23,7 @@ export function Quote() {
             queryKey: ['anime', encodeURI(title)],
             queryFn: async () => AnimesResource.getAnimesByTitleOnJikan(encodeURI(title)),
           })
-          .then((result) => setMalId(result[0].animes[0].malId))
+          .then((response) => (response !== null ? setMalId(response.animeByTitle.malId) : setMalId(null)))
           .catch(() => setMalId(null));
       } else {
         setMalId(null);
