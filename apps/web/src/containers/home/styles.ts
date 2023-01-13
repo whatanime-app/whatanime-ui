@@ -16,3 +16,9 @@ export const Heading = styled(Text, {
 export const Box = styled('div', {
   width: '100%',
 });
+
+export const Flex = styled('div', {
+  width: '100%',
+  display: 'flex',
+  gap: '$12',
+});

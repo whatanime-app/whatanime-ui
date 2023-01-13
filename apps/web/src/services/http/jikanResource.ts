@@ -6,6 +6,7 @@ import type {
   AnimeByNameResponse,
   AnimeRandomResponse,
   TopAnimeResponse,
+  TypeTopAnime,
 } from '@/types/jikan';
 import type { AnimeResult } from '@/types/results';
 
@@ -35,9 +36,17 @@ class JikanResource {
     return this.formatAnime(response.data);
   }
 
-  async getAnimeTop(filter: 'airing' | 'upcoming' | 'bypopularity' | 'favorite') {
+  async getAnimeTop(filter: TypeTopAnime) {
     const { data: response } = await this.http.get<TopAnimeResponse>(`/top/anime?filter=${filter}`);
-    return response.data.map((anime) => this.formatAnime(anime));
+
+    const arraySize = {
+      airing: 5,
+      upcoming: 10,
+      bypopularity: 10,
+      favorite: 10,
+    } as const;
+
+    return response.data.slice(0, arraySize[filter]).map((anime) => this.formatAnime(anime));
   }
 
   private formatAnime(anime: Anime): AnimeResult {

@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { AnimesResource } from '@/services/http';
+import type { TypeTopAnime } from '@/types/jikan';
 import type { AnimeResult } from '@/types/results';
 
 export const useAnimeRandom = () =>
@@ -23,14 +24,8 @@ export const useAnimeByTitle = (title: string) =>
     queryFn: async () => AnimesResource.getAnimesByTitleOnJikan(title),
   });
 
-export const useAnimeTopByFavorite = () =>
+export const useAnimeTop = (filter: TypeTopAnime) =>
   useQuery({
-    queryKey: ['animes', 'favorite'],
-    queryFn: async () => AnimesResource.getAnimeTop('favorite'),
-  });
-
-export const useAnimeTopByPopularity = () =>
-  useQuery({
-    queryKey: ['animes', 'popularity'],
-    queryFn: async () => AnimesResource.getAnimeTop('bypopularity'),
+    queryKey: ['animes', filter],
+    queryFn: async () => AnimesResource.getAnimeTop(filter),
   });

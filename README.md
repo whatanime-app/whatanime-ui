@@ -27,8 +27,14 @@ This turborepo has some additional tools already setup for you:
 
 ## Installation
 
+It is recommended that you have nvm installed to use the version configured in the .nvmrc file.
+
+NVM : https://github.com/nvm-sh/nvm
+
 ```
 cd whatanime-ui
+nvm use
+npm install
 npm i
 ```
 

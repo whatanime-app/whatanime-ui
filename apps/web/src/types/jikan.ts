@@ -205,3 +205,5 @@ export interface AnimeByIdResponse {
 export interface AnimeRandomResponse {
   data: Anime;
 }
+
+export type TypeTopAnime = 'airing' | 'upcoming' | 'bypopularity' | 'favorite';

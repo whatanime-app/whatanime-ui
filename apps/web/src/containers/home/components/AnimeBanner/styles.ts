@@ -1,13 +1,10 @@
-import { styled, Text } from '@whatanime/design-system';
+import { Container as WAContainer, styled, Text as WAText } from '@whatanime/design-system';
 import Image from 'next/image';
 
-export const Container = styled('div', {
-  borderRadius: '$md',
+export const Container = styled(WAContainer, {
   display: 'flex',
   width: '100%',
   height: 250,
-  backgroundColor: '$gray800',
-  border: '1px solid $gray600',
 });
 
 export const Content = styled('div', {
@@ -19,7 +16,6 @@ export const Box = styled('div', {
   width: 220,
   borderRadius: 'inherit',
   overflow: 'hidden',
-  boxShadow: `0 2px 10px $black`,
 });
 
 export const Flex = styled('div', {
@@ -34,7 +30,7 @@ export const Img = styled(Image, {
   height: '100%',
 });
 
-export const StyleText = styled(Text, {
+export const Text = styled(WAText, {
   color: '$white',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
