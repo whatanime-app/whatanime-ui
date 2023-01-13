@@ -11,7 +11,7 @@ import { useSearch } from '@/stores/useSearch';
 import { Form, IconButton, Input, TextInputContainer } from './styles';
 
 const inputSchema = z.object({
-  title: z.string().transform((title) => encodeURI(title)),
+  title: z.string(),
 });
 
 type InputValues = z.infer<typeof inputSchema>;

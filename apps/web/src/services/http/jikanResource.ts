@@ -1,4 +1,4 @@
-/* eslint-disable no-plusplus */
+import { colors } from '@whatanime/design-tokens';
 import axios, { AxiosInstance } from 'axios';
 
 import type {
@@ -6,6 +6,7 @@ import type {
   AnimeByIdResponse,
   AnimeByNameResponse,
   AnimeRandomResponse,
+  Images,
   TopAnimeResponse,
   TypeTopAnime,
 } from '@/types/jikan';
@@ -40,7 +41,7 @@ class JikanResource {
 
   async getAnimesByTitleOnJikan(title: string): Promise<GetAnimeByTitleOnJikan> {
     const { data: response } = await this.http.get<AnimeByNameResponse>(
-      `/anime?q=${title}&order_by=popularity`,
+      `/anime?q=${encodeURI(title)}&order_by=popularity`,
     );
     const animes = response.data.map((anime) => this.formatAnime(anime));
 
@@ -82,7 +83,7 @@ class JikanResource {
   private formatAnime(anime: Anime): AnimeResult {
     return {
       malId: anime.mal_id,
-      image: anime.images.webp.large_image_url || anime.images.jpg.large_image_url,
+      image: this.imageUrlTransformer(anime.images),
       title: anime.title,
       titleEnglish: anime.title_english,
       titleJapanese: anime.title_japanese,
@@ -102,6 +103,20 @@ class JikanResource {
       season: anime.season,
       year: anime.year || anime.aired.prop.from.year || null,
     };
+  }
+
+  private imageUrlTransformer(images: Images) {
+    const url = images.webp.large_image_url || images.jpg.large_image_url;
+    const { black, white } = colors;
+
+    if (url === 'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png') {
+      return `https://via.placeholder.com/230x250/${black}/${white}.png?text=whatanime.org`.replaceAll(
+        '#',
+        '',
+      );
+    }
+
+    return url;
   }
 }
 
