@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import { Button } from '@whatanime/design-system';
 import Link from 'next/link';
@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { prefetchAnimeById } from '@/services/http';
 import type { AnimeResult } from '@/types/results';
 
-import { Badge, Box, Container, Content, Flex, Header, Img, StyleText as Text } from './styles';
+import { Badge, Box, Container, Content, Flex, Header, Img, Text } from './styles';
 
 type Props = {
   anime: AnimeResult;
@@ -15,7 +15,7 @@ type Props = {
 export function AnimeBanner({ anime }: Props) {
   const queryClient = useQueryClient();
   const { title, image, year, score, synopsis, malId } = anime;
-  const compatility = null; // implementar futuramente com quando tiver api de img
+  const [compatibility] = useState(null); // implementar futuramente com quando tiver api de img
 
   const prefetchAnime = useCallback(async () => {
     await prefetchAnimeById(queryClient, malId);
@@ -34,10 +34,10 @@ export function AnimeBanner({ anime }: Props) {
             </Text>
           </Header>
           <Flex css={{ alignItems: 'flex-start', gap: '$4' }}>
-            {compatility ? (
+            {compatibility ? (
               <Flex css={{ flexDirection: 'column' }}>
                 <Badge>Compatibility</Badge>
-                <Text>{compatility}</Text>
+                <Text>{compatibility}</Text>
               </Flex>
             ) : null}
             {score ? (

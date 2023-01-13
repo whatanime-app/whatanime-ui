@@ -5,7 +5,7 @@ import { AnimesResource } from '@/services/http';
 import { AnimeResult } from '@/types/results';
 
 type SearchStore = {
-  results: AnimeResult[];
+  results: Array<AnimeResult>;
   searchAnime: (title: string) => Promise<void>;
 };
 

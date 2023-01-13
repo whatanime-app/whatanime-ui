@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useQuoteRandom } from '@/hooks/useQuote';
 import { AnimesResource, prefetchAnimeById } from '@/services/http';
 
-import { Button, Character, Content, Flex, Header, StyledText as Text, Title } from './styles';
+import { Button, Character, Content, Flex, Header, Text, Title } from './styles';
 
 export function Quote() {
   const [malId, setMalId] = useState<number | null>(null);
