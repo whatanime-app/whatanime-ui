@@ -9,7 +9,12 @@
         "ANALYZE",
         "VERCEL_URL",
         "RENDER_INTERNAL_HOSTNAME",
-        "PORT"
+        "PORT",
+        "GOOGLE_CLIENT_ID",
+        "GOOGLE_CLIENT_SECRET",
+        "FACEBOOK_CLIENT_ID",
+        "FACEBOOK_CLIENT_SECRET",
+        "DATABASE_URL"
       ],
       "outputs": ["dist/**", ".next/**"]
     },

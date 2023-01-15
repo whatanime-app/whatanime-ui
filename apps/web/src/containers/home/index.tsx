@@ -1,39 +1,16 @@
 import { useCallback, useEffect, useState } from 'react';
-import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Button } from '@whatanime/design-system';
-import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 
 import { Layout } from '@/components/Layout';
 import { useAnimeRandom } from '@/hooks/useAnime';
-import { prefetchAnimeRandom, prefetchQuoteRandom, prefetchTopAnime } from '@/services/http';
 import { useSearch } from '@/stores/useSearch';
 import type { GetAnimeByTitleOnJikan } from '@/types/results';
-import { trpc } from '@/utils/trpc';
 
 import { AnimeBanner, MiniAnimeCard, Quote, Ranking, Search } from './components';
 import { Box, Container, Flex, Heading } from './styles';
 
-export const getStaticProps: GetStaticProps = async () => {
-  const queryClient = new QueryClient();
-
-  await prefetchAnimeRandom(queryClient);
-  await prefetchQuoteRandom(queryClient);
-  await prefetchTopAnime(queryClient, 'airing');
-  await prefetchTopAnime(queryClient, 'favorite');
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-    revalidate: 60 * 60 * 24, // 24 hours
-  };
-};
-
-export default function Home() {
-  const hello = trpc.hello.useQuery({ text: 'client' });
-  console.log(hello.data?.greeting);
-
+export function Home() {
   const [pagination, setPagination] = useState(0);
   const response = useSearch((state) => state.response);
   const [result, setResult] = useState<GetAnimeByTitleOnJikan>(null);
@@ -52,7 +29,7 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>WhatAnime{animeRandom ? ` | ${animeRandom.title}` : null} </title>
+        <title>WhatAnime </title>
       </Head>
       <Container>
         <Search />

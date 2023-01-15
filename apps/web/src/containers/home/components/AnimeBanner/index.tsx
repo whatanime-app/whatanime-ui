@@ -1,9 +1,8 @@
 import { memo, useCallback, useState } from 'react';
-import { useQueryClient } from '@tanstack/react-query';
 import { Button } from '@whatanime/design-system';
 import Link from 'next/link';
 
-import { prefetchAnimeById } from '@/services/http';
+import { useTrpcContext } from '@/hooks/useTrpcContext';
 import type { AnimeResult } from '@/types/results';
 
 import { Badge, Box, Container, Content, Flex, Header, Img, Text } from './styles';
@@ -12,11 +11,11 @@ type Props = Pick<AnimeResult, 'title' | 'image' | 'year' | 'score' | 'synopsis'
 
 export const AnimeBanner = memo(({ title, image, year, score, synopsis, malId }: Props) => {
   const [compatibility] = useState(null); // implementar futuramente com quando tiver api de img
-  const queryClient = useQueryClient();
+  const { getAnimeById } = useTrpcContext();
 
   const prefetchAnime = useCallback(async () => {
-    await prefetchAnimeById(queryClient, malId);
-  }, [queryClient, malId]);
+    await getAnimeById.prefetch({ malId });
+  }, [malId, getAnimeById]);
 
   return (
     <Container>

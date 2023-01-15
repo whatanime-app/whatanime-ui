@@ -1,32 +1,26 @@
-import { useQuery } from '@tanstack/react-query';
-
-import { AnimesResource } from '@/services/http';
 import type { TypeTopAnime } from '@/types/jikan';
 import type { AnimeResult } from '@/types/results';
+import { trpc } from '@/utils/trpc';
 
 export const useAnimeRandom = () =>
-  useQuery({
-    queryKey: ['anime', 'a-random'],
-    queryFn: async () => AnimesResource.getAnimeRandom(),
+  trpc.getAnimeRandom.useQuery(undefined, {
     staleTime: 60 * 60 * 1000 * 24, // 24 hours
   });
 
 export const useAnimeById = (malId: number, anime?: AnimeResult) =>
-  useQuery({
-    queryKey: ['anime', malId],
-    queryFn: async () => AnimesResource.getAnimeByIdOnJikan(malId),
-    initialData: anime,
-  });
+  trpc.getAnimeById.useQuery(
+    { malId },
+    {
+      initialData: anime,
+    },
+  );
 
-export const useAnimeByTitle = (title: string) =>
-  useQuery({
-    queryKey: ['animes', title],
-    queryFn: async () => AnimesResource.getAnimesByTitleOnJikan(title),
-  });
+export const useAnimeByTitle = (title: string) => trpc.getAnimeByTitle.useQuery({ title });
 
 export const useAnimeTop = (filter: TypeTopAnime) =>
-  useQuery({
-    queryKey: ['animes', filter],
-    queryFn: async () => AnimesResource.getAnimeTop(filter),
-    staleTime: 60 * 60 * 1000 * 24, // 24 hours
-  });
+  trpc.getAnimeRanking.useQuery(
+    { filter },
+    {
+      staleTime: 60 * 60 * 1000 * 24, // 24 hours
+    },
+  );

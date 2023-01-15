@@ -23,13 +23,5 @@
   "engines": {
     "node": "16.x"
   },
-  "packageManager": "npm@8.19.2",
-  "dependencies": {
-    "@tanstack/react-query": "^4.22.0",
-    "@trpc/client": "^10.9.0",
-    "@trpc/next": "^10.9.0",
-    "@trpc/react-query": "^10.9.0",
-    "@trpc/server": "^10.9.0",
-    "zod": "^3.20.2"
-  }
+  "packageManager": "npm@8.19.2"
 }

@@ -1,9 +1,8 @@
 import { useCallback } from 'react';
-import { useQueryClient } from '@tanstack/react-query';
 import { Text } from '@whatanime/design-system';
 
 import { useAnimeTop } from '@/hooks/useAnime';
-import { prefetchAnimeById } from '@/services/http';
+import { useTrpcContext } from '@/hooks/useTrpcContext';
 import type { TypeTopAnime } from '@/types/jikan';
 
 import { Box, Container, Heading, Link, List, ListItem } from './styles';
@@ -13,14 +12,14 @@ type Props = {
 };
 
 export function Ranking({ type }: Props) {
-  const queryClient = useQueryClient();
+  const { getAnimeById } = useTrpcContext();
   const { data, isLoading } = useAnimeTop(type);
 
   const prefetchAnime = useCallback(
     async (malId: number) => {
-      await prefetchAnimeById(queryClient, malId);
+      await getAnimeById.prefetch({ malId });
     },
-    [queryClient],
+    [getAnimeById],
   );
 
   if (isLoading || !data) {

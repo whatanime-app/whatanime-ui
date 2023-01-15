@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Anime {
+  malId         Int     @id @unique
+  title         String
+  slug          String
+  titleEnglish  String?
+  titleJapanese String?
+  year          Int?
+  score         Float?
+  type          String
+  source        String?
+  imageUrl      String
+  synopsis      String?
+  status        String
+  duration      String
+  aired         String?
+  rating        String?
+  episodes      Int?
+
+  @@map("anime")
+}
+
+model Quote {
+  id        String @id
+  quote     String
+  slug      String
+  title     String
+  character String
+
+  @@map("quote")
+}
+
+model User {
+  id        String   @id
+  authUser  String   @unique
+  createdAt DateTime
+  updatedAt DateTime
+
+  @@map("user")
+}
