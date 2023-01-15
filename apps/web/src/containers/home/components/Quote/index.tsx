@@ -62,7 +62,7 @@ export function Quote() {
             aria-label={`link to ${title} page`}
             as={Link}
             href={`/${malId}`}
-            onMouseOver={() => prefetchAnime()}
+            onMouseOver={prefetchAnime}
           >
             <AiOutlineArrowRight size={32} />
           </Button>

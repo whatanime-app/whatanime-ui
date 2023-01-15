@@ -21,7 +21,7 @@ export function MiniAnimeCard({ anime }: Props) {
 
   return (
     <Container css={{ backgroundImage: `url(${image})` }}>
-      <Button as={Link} href={`/${malId}`} onMouseOver={() => prefetchAnime()}>
+      <Button as={Link} href={`/${malId}`} onMouseOver={prefetchAnime}>
         <Span>{title}</Span>
       </Button>
     </Container>

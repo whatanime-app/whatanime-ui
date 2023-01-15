@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import type { MouseEvent } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Button } from '@whatanime/design-system';
 import type { GetStaticProps } from 'next';
@@ -40,6 +41,11 @@ export default function Home() {
     setResult(response);
     setPagination(0);
   }, [response]);
+
+  const setPage = useCallback((page: number, event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+    event.preventDefault();
+    setPagination(page);
+  }, []);
 
   return (
     <Layout>
@@ -96,7 +102,7 @@ export default function Home() {
                             key={page}
                             type="button"
                             disabled={page === pagination}
-                            onClick={() => setPagination(page)}
+                            onClick={(event) => setPage(page, event)}
                           >
                             {page + 1}
                           </Button>

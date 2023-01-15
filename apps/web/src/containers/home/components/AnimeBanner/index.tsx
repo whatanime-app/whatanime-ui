@@ -46,7 +46,7 @@ export function AnimeBanner({ anime }: Props) {
                 <Text>{score}</Text>
               </Flex>
             ) : null}
-            <Button as={Link} href={`/${malId}`} onMouseOver={() => prefetchAnime()}>
+            <Button as={Link} href={`/${malId}`} onMouseOver={prefetchAnime}>
               Go to Page
             </Button>
           </Flex>
