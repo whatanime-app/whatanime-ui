@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 
-import { ANIMECHAN_URL } from '@/services/http';
 import type { QuoteResponse } from '@/types/animeChan';
+import { ANIMECHAN_URL } from '@/utils/http';
 
 import { quote, quotes } from '../animeChan';
 

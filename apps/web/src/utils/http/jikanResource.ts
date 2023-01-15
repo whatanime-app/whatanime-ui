@@ -18,7 +18,7 @@ export const jikanApi = axios.create({
   baseURL: JIKAN_URL,
 });
 
-class JikanResource {
+export class JikanResource {
   private http: AxiosInstance = jikanApi;
 
   private animeChunk(animes: Array<AnimeResult>) {

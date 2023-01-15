@@ -9,7 +9,7 @@ export const animeChanApi = axios.create({
   baseURL: ANIMECHAN_URL,
 });
 
-class AnimeChanResource {
+export class AnimeChanResource {
   private http: AxiosInstance = animeChanApi;
 
   async getRandomAnimeQuote() {

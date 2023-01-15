@@ -2,10 +2,10 @@ import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaSearch } from 'react-icons/fa';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useQueryClient } from '@tanstack/react-query';
 import { Text } from '@whatanime/design-system';
 import { z } from 'zod';
 
+import { useTrpcContext } from '@/hooks/useTrpcContext';
 import { useSearch } from '@/stores/useSearch';
 
 import { Form, IconButton, Input, TextInputContainer } from './styles';
@@ -17,8 +17,8 @@ const inputSchema = z.object({
 type InputValues = z.infer<typeof inputSchema>;
 
 export function Search() {
-  const queryClient = useQueryClient();
-  const searchAnime = useSearch((state) => state.searchAnime);
+  const { getAnimeByTitle } = useTrpcContext();
+  const searchAnime = useSearch((state) => state.setResponse);
 
   const {
     register,
@@ -35,10 +35,12 @@ export function Search() {
 
   const handleSearch = useCallback(
     async (values: InputValues) => {
-      await searchAnime(queryClient, values.title);
-      reset();
+      await getAnimeByTitle.fetch({ title: values.title }).then((response) => {
+        searchAnime(response);
+        reset();
+      });
     },
-    [reset, searchAnime, queryClient],
+    [getAnimeByTitle, reset, searchAnime],
   );
 
   return (
