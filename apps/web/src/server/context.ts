@@ -5,13 +5,15 @@ import { getSession } from 'next-auth/react';
 import { AnimeChanResource, JikanResource } from '@/utils/http';
 import { prisma } from '@/utils/prisma';
 
-export async function createContext(ctx?: CreateNextContextOptions) {
-  return {
-    session: await getSession({ req: ctx?.req }),
-    prisma,
-    animesResource: new JikanResource(),
-    quotesResource: new AnimeChanResource(),
-  };
-}
+type ContextOptions = Partial<CreateNextContextOptions>;
+
+export const createContext = async ({ req = undefined, res = undefined }: ContextOptions) => ({
+  req,
+  res,
+  prisma,
+  session: await getSession({ req }),
+  animesResource: new JikanResource(),
+  quotesResource: new AnimeChanResource(),
+});
 
 export type Context = inferAsyncReturnType<typeof createContext>;
