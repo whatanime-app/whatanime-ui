@@ -16,9 +16,7 @@ export const animesRouter = router({
         title: z.string(),
       }),
     )
-    .query(({ input, ctx }) => {
-      ctx.animesResource.getAnimesByTitleOnJikan(input.title);
-    }),
+    .query(({ input, ctx }) => ctx.animesResource.getAnimesByTitleOnJikan(input.title)),
   getAnimeRanking: publicProcedure
     .input(
       z.object({
