@@ -3,7 +3,14 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "env": ["NEXT_PUBLIC_API_MOCKING", "NODE_ENV", "ANALYZE"],
+      "env": [
+        "NEXT_PUBLIC_API_MOCKING",
+        "NODE_ENV",
+        "ANALYZE",
+        "VERCEL_URL",
+        "RENDER_INTERNAL_HOSTNAME",
+        "PORT"
+      ],
       "outputs": ["dist/**", ".next/**"]
     },
     "lint": {

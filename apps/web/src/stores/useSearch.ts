@@ -22,6 +22,6 @@ export const useSearch = create(
         set({ response });
       },
     }),
-    { name: 'search-animes' },
+    { name: '@whatanime-search-animes' },
   ),
 );

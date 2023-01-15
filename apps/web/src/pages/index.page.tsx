@@ -1,1 +1,1 @@
-export { default, getStaticProps } from '../containers/home';
+export { default, getStaticProps } from '@/containers/home';

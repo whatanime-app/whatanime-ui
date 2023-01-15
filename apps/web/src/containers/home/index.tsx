@@ -9,6 +9,7 @@ import { useAnimeRandom } from '@/hooks/useAnime';
 import { prefetchAnimeRandom, prefetchQuoteRandom, prefetchTopAnime } from '@/services/http';
 import { useSearch } from '@/stores/useSearch';
 import type { GetAnimeByTitleOnJikan } from '@/types/results';
+import { trpc } from '@/utils/trpc';
 
 import { AnimeBanner, MiniAnimeCard, Quote, Ranking, Search } from './components';
 import { Box, Container, Flex, Heading } from './styles';
@@ -30,6 +31,9 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 export default function Home() {
+  const hello = trpc.hello.useQuery({ text: 'client' });
+  console.log(hello.data?.greeting);
+
   const [pagination, setPagination] = useState(0);
   const response = useSearch((state) => state.response);
   const [result, setResult] = useState<GetAnimeByTitleOnJikan>(null);

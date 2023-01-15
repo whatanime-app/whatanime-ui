@@ -8,6 +8,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
 import { globalStyles } from '@/styles/global';
+import { trpc } from '@/utils/trpc';
 
 import { axeAccessibilityReporter } from '../utils';
 
@@ -28,10 +29,10 @@ export const novaMono = NovaMono({
 globalStyles();
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
-  require('../mocks');
+  // require('../mocks');
 }
 
-export default function App({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
 
   useEffectOnce(() => {
@@ -59,3 +60,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </QueryClientProvider>
   );
 }
+
+export default trpc.withTRPC(MyApp);
