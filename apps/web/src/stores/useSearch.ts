@@ -1,5 +1,5 @@
 import { QueryClient } from '@tanstack/react-query';
-import create from 'zustand';
+import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 import { AnimesResource } from '@/services/http';

@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import Link from 'next/link';
 
@@ -7,12 +7,9 @@ import type { AnimeResult } from '@/types/results';
 
 import { Button, Container, Span } from './styles';
 
-type Props = {
-  anime: AnimeResult;
-};
+type Props = Pick<AnimeResult, 'title' | 'malId' | 'image'>;
 
-export function MiniAnimeCard({ anime }: Props) {
-  const { image, title, malId } = anime;
+export const MiniAnimeCard = memo(({ image, malId, title }: Props) => {
   const queryClient = useQueryClient();
 
   const prefetchAnime = useCallback(async () => {
@@ -21,9 +18,11 @@ export function MiniAnimeCard({ anime }: Props) {
 
   return (
     <Container css={{ backgroundImage: `url(${image})` }}>
-      <Button as={Link} href={`/${malId}`} onMouseOver={() => prefetchAnime()}>
+      <Button as={Link} href={`/${malId}`} onMouseOver={prefetchAnime}>
         <Span>{title}</Span>
       </Button>
     </Container>
   );
-}
+});
+
+MiniAnimeCard.displayName = 'MiniAnimeCard';

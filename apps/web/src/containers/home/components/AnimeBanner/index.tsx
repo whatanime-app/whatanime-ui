@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import { Button } from '@whatanime/design-system';
 import Link from 'next/link';
@@ -8,14 +8,11 @@ import type { AnimeResult } from '@/types/results';
 
 import { Badge, Box, Container, Content, Flex, Header, Img, Text } from './styles';
 
-type Props = {
-  anime: AnimeResult;
-};
+type Props = Pick<AnimeResult, 'title' | 'image' | 'year' | 'score' | 'synopsis' | 'malId'>;
 
-export function AnimeBanner({ anime }: Props) {
-  const queryClient = useQueryClient();
-  const { title, image, year, score, synopsis, malId } = anime;
+export const AnimeBanner = memo(({ title, image, year, score, synopsis, malId }: Props) => {
   const [compatibility] = useState(null); // implementar futuramente com quando tiver api de img
+  const queryClient = useQueryClient();
 
   const prefetchAnime = useCallback(async () => {
     await prefetchAnimeById(queryClient, malId);
@@ -46,7 +43,7 @@ export function AnimeBanner({ anime }: Props) {
                 <Text>{score}</Text>
               </Flex>
             ) : null}
-            <Button as={Link} href={`/${malId}`} onMouseOver={() => prefetchAnime()}>
+            <Button as={Link} href={`/${malId}`} onMouseOver={prefetchAnime}>
               Go to Page
             </Button>
           </Flex>
@@ -62,4 +59,6 @@ export function AnimeBanner({ anime }: Props) {
       </Content>
     </Container>
   );
-}
+});
+
+AnimeBanner.displayName = 'AnimeBanner';
