@@ -1,4 +1,3 @@
-import type { MouseEvent } from 'react';
 import { useCallback } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import { Text } from '@whatanime/design-system';
@@ -18,8 +17,7 @@ export function Ranking({ type }: Props) {
   const { data, isLoading } = useAnimeTop(type);
 
   const prefetchAnime = useCallback(
-    async (malId: number, event: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>) => {
-      event.preventDefault();
+    async (malId: number) => {
       await prefetchAnimeById(queryClient, malId);
     },
     [queryClient],
@@ -43,7 +41,7 @@ export function Ranking({ type }: Props) {
       <Box>
         <List>
           {data.map(({ malId, title }, index) => (
-            <Link key={malId} href={`/${malId}`} onMouseOver={(event) => prefetchAnime(malId, event)}>
+            <Link key={malId} href={`/${malId}`} onMouseOver={() => prefetchAnime(malId)}>
               <ListItem css={{ '-webkit-line-clamp': type === 'airing' ? 1 : 2 }}>
                 {index + 1}.{` ${title}`}
               </ListItem>

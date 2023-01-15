@@ -1,4 +1,3 @@
-import type { MouseEvent } from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Button } from '@whatanime/design-system';
@@ -42,8 +41,7 @@ export default function Home() {
     setPagination(0);
   }, [response]);
 
-  const setPage = useCallback((page: number, event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
-    event.preventDefault();
+  const setPage = useCallback((page: number) => {
     setPagination(page);
   }, []);
 
@@ -62,7 +60,7 @@ export default function Home() {
             ANIME OF THE DAY
           </Heading>
           <Flex>
-            {animeRandom ? <AnimeBanner anime={animeRandom} /> : null}
+            {animeRandom ? <AnimeBanner {...animeRandom} /> : null}
             <Ranking type="airing" />
           </Flex>
         </Box>
@@ -79,11 +77,11 @@ export default function Home() {
                   </Heading>
                   <Flex>
                     <Flex css={{ flexDirection: 'column', gap: '$12', position: 'relative', height: 548 }}>
-                      {result.animeByTitle ? <AnimeBanner anime={result.animeByTitle} /> : null}
+                      {result.animeByTitle ? <AnimeBanner {...result.animeByTitle} /> : null}
                       <Flex css={{ gap: '$2', justifyContent: 'space-between' }}>
                         {result.data
                           ? result.data[pagination].animes.map((anime) => (
-                              <MiniAnimeCard key={anime.malId} anime={anime} />
+                              <MiniAnimeCard key={anime.malId} {...anime} />
                             ))
                           : null}
                       </Flex>
@@ -102,7 +100,7 @@ export default function Home() {
                             key={page}
                             type="button"
                             disabled={page === pagination}
-                            onClick={(event) => setPage(page, event)}
+                            onClick={() => setPage(page)}
                           >
                             {page + 1}
                           </Button>
