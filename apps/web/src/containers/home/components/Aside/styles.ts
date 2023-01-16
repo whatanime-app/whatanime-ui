@@ -10,5 +10,5 @@ export const Flex = styled('div', {
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
-  gap: '$24',
+  gap: '6.2rem',
 });

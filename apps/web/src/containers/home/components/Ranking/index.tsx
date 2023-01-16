@@ -31,7 +31,7 @@ export function Ranking({ type }: Props) {
   }
 
   return (
-    <Container css={{ height: type === 'airing' ? 250 : 548 }}>
+    <Container css={{ height: type === 'airing' ? 250 : 532 }}>
       <Heading>
         <Text css={{ textTransform: 'uppercase' }} as="h2">
           {type}

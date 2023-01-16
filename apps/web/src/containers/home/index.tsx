@@ -10,7 +10,7 @@ import { useSearch } from '@/stores/useSearch';
 import type { GetAnimeByTitleOnJikan } from '@/types/results';
 
 import { AnimeBanner, MiniAnimeCard, Search } from './components';
-import { Box, Container, Content, Flex, Heading } from './styles';
+import { Box, Container, Content, Flex, Heading, Result } from './styles';
 
 const Aside = dynamic<Record<string, never>>(() => import('./components/Aside').then((mod) => mod.Aside));
 
@@ -50,7 +50,7 @@ export function Home() {
       <Head>
         <title>WhatAnime </title>
       </Head>
-      <Container css={{ width: isMobile ? '90%' : '100%' }}>
+      <Container>
         <Content>
           <Search />
           <Box>
@@ -73,18 +73,12 @@ export function Home() {
                     }}
                   >
                     {result.animeByTitle ? <AnimeBanner {...result.animeByTitle} /> : null}
-                    <Flex
-                      css={{
-                        gap: '$2',
-                        justifyContent: width < 720 ? 'center' : 'space-between',
-                        flexWrap: 'wrap',
-                      }}
-                    >
+                    <Result>
                       {result.data &&
                         result.data[pagination].animes.map((anime) => (
-                          <MiniAnimeCard isMobile={isMobile} key={anime.malId} {...anime} />
+                          <MiniAnimeCard key={anime.malId} {...anime} />
                         ))}
-                    </Flex>
+                    </Result>
                   </Flex>
                 </Flex>
                 <Flex
