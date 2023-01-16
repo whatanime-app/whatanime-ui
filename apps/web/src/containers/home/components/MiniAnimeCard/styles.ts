@@ -1,7 +1,7 @@
 import { Button as WAButton, Container as WAContainer, styled } from '@whatanime/design-system';
 
 export const Container = styled(WAContainer, {
-  width: 230,
+  maxWidth: 232,
   height: 250,
   position: 'relative',
 });

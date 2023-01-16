@@ -6,9 +6,9 @@ import type { AnimeResult } from '@/types/results';
 
 import { Button, Container, Span } from './styles';
 
-type Props = Pick<AnimeResult, 'title' | 'malId' | 'image'>;
+type Props = Pick<AnimeResult, 'title' | 'malId' | 'image'> & { isMobile: boolean };
 
-export const MiniAnimeCard = memo(({ image, malId, title }: Props) => {
+export const MiniAnimeCard = memo(({ image, malId, title, isMobile = true }: Props) => {
   const { getAnimeById } = useTrpcContext();
 
   const prefetchAnime = useCallback(async () => {
@@ -16,7 +16,7 @@ export const MiniAnimeCard = memo(({ image, malId, title }: Props) => {
   }, [getAnimeById, malId]);
 
   return (
-    <Container css={{ backgroundImage: `url(${image})` }}>
+    <Container css={{ backgroundImage: `url(${image})`, width: isMobile ? 168 : 216 }}>
       <Button as={Link} href={`/${malId}`} onMouseOver={prefetchAnime}>
         <Span>{title}</Span>
       </Button>

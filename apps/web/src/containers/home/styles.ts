@@ -1,12 +1,18 @@
 import { styled, Text } from '@whatanime/design-system';
 
 export const Container = styled('section', {
-  width: '100%',
+  mx: 'auto',
   py: '$8',
-  gap: '$12',
+  gap: '$8',
   display: 'flex',
-  alignItems: 'center',
   justifyContent: 'space-between',
+});
+
+export const Content = styled('article', {
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '$8',
 });
 
 export const Heading = styled(Text, {
@@ -20,5 +26,4 @@ export const Box = styled('div', {
 export const Flex = styled('div', {
   width: '100%',
   display: 'flex',
-  gap: '$12',
 });
