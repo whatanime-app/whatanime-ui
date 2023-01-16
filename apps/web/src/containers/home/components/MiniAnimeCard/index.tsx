@@ -1,29 +1,27 @@
-import { useCallback } from 'react';
-import { useQueryClient } from '@tanstack/react-query';
+import { memo, useCallback } from 'react';
 import Link from 'next/link';
 
-import { prefetchAnimeById } from '@/services/http';
+import { useTrpcContext } from '@/hooks/useTrpcContext';
 import type { AnimeResult } from '@/types/results';
 
 import { Button, Container, Span } from './styles';
 
-type Props = {
-  anime: AnimeResult;
-};
+type Props = Pick<AnimeResult, 'title' | 'malId' | 'image'> & { isMobile: boolean };
 
-export function MiniAnimeCard({ anime }: Props) {
-  const { image, title, malId } = anime;
-  const queryClient = useQueryClient();
+export const MiniAnimeCard = memo(({ image, malId, title, isMobile = true }: Props) => {
+  const { getAnimeById } = useTrpcContext();
 
   const prefetchAnime = useCallback(async () => {
-    await prefetchAnimeById(queryClient, malId);
-  }, [queryClient, malId]);
+    await getAnimeById.prefetch({ malId });
+  }, [getAnimeById, malId]);
 
   return (
-    <Container css={{ backgroundImage: `url(${image})` }}>
-      <Button as={Link} href={`/${malId}`} onMouseOver={() => prefetchAnime()}>
+    <Container css={{ backgroundImage: `url(${image})`, width: isMobile ? 168 : 216 }}>
+      <Button as={Link} href={`/${malId}`} onMouseOver={prefetchAnime}>
         <Span>{title}</Span>
       </Button>
     </Container>
   );
-}
+});
+
+MiniAnimeCard.displayName = 'MiniAnimeCard';

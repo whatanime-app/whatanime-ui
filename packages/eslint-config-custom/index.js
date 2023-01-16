@@ -48,5 +48,6 @@ module.exports = {
     'no-html-link-for-pages': 'off',
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
+    'import/order': 'off',
   },
 };

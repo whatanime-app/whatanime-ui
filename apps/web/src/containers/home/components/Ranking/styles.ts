@@ -36,7 +36,6 @@ export const Heading = styled('header', {
 });
 
 export const Box = styled('div', {
-  px: '$8',
   display: 'flex',
   justifyContent: 'center',
   height: '100%',

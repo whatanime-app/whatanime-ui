@@ -1,10 +1,6 @@
-import { useQuery } from '@tanstack/react-query';
-
-import { QuotesResource } from '@/services/http';
+import { trpc } from '@/utils/trpc';
 
 export const useQuoteRandom = () =>
-  useQuery({
-    queryKey: ['quote', 'q-random'],
-    queryFn: async () => QuotesResource.getRandomAnimeQuote(),
+  trpc.getRandomAnimeQuote.useQuery(undefined, {
     staleTime: 2 * 60 * 1000, // 2 minutes
   });
