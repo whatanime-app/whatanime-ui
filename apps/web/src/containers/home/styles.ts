@@ -6,6 +6,12 @@ export const Container = styled('section', {
   gap: '$8',
   display: 'flex',
   justifyContent: 'space-between',
+
+  width: '90%',
+
+  '@media (min-width: 1024px)': {
+    width: '100%',
+  },
 });
 
 export const Content = styled('article', {
@@ -26,4 +32,14 @@ export const Box = styled('div', {
 export const Flex = styled('div', {
   width: '100%',
   display: 'flex',
+});
+
+export const Result = styled(Flex, {
+  gap: '$5',
+  flexWrap: 'wrap',
+  justifyContent: 'space-around',
+
+  '@media (min-width: 1024px)': {
+    justifyContent: 'space-between',
+  },
 });
