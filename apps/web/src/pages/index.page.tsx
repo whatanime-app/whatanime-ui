@@ -8,7 +8,7 @@ import { appRouter } from '@/server/routers/_app';
 export const getStaticProps: GetStaticProps = async () => {
   const { dehydrate, getAnimeRandom, getRandomAnimeQuote, getAnimeRanking } = createProxySSGHelpers({
     router: appRouter,
-    ctx: await createContext(),
+    ctx: await createContext({ req: undefined, res: undefined }),
   });
 
   await getAnimeRandom.prefetch();
